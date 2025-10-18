@@ -1,16 +1,21 @@
 /* Base styles */
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Baloo 2', cursive;
-  background: #fff8f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #333;
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 header {
@@ -18,86 +23,191 @@ header {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 50px;
+  background: white;
+  padding: 25px 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+}
+
+header .brand {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header .brand .logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 header .brand h1 {
-  color: #ff6f3c;
-  font-size: 2.5em;
+  color: #667eea;
+  font-size: 2.8em;
   margin: 0;
+  font-weight: 700;
 }
 
 header .lead {
-  font-size: 1.2em;
-  color: #d84315;
+  font-size: 1.1em;
+  color: #555;
+  margin: 5px 0 0 0;
+  font-weight: 400;
+}
+
+nav {
+  display: flex;
+  gap: 10px;
 }
 
 nav a.btn {
-  margin: 0 5px;
-  padding: 8px 14px;
+  margin: 0;
+  padding: 12px 24px;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 10px;
   transition: all 0.3s;
   color: white;
-  background: #ff7f50;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 nav a.btn:hover {
-  background: #ff4f1c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .card {
-  background: #fff3e0;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 20px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-h2, h4 {
-  color: #d84315;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+}
+
+.card.hero {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+h2 {
+  color: #667eea;
+  font-size: 2.2em;
+  margin-top: 0;
+  font-weight: 700;
+  margin-bottom: 25px;
+}
+
+h4 {
+  color: #764ba2;
+  font-size: 1.4em;
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.7;
+  font-size: 1.05em;
+}
+
+.mission {
+  font-size: 1.2em;
+  color: #667eea;
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+}
+
+.muted {
+  color: #666;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
 }
 
 .projects .project {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 15px;
+  padding: 25px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 15px;
+  transition: all 0.3s;
+}
+
+.projects .project:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  transform: translateX(10px);
 }
 
 .projects .dot {
-  width: 15px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #ffb74d;
-  margin-right: 15px;
-  margin-top: 5px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-right: 20px;
+  margin-top: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+}
+
+.btn.visit {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.btn.visit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
 }
 
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
 }
 
 .member {
   display: flex;
   align-items: center;
-  background: #ffe0b2;
-  border-radius: 12px;
-  padding: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+  border-radius: 15px;
+  padding: 18px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: all 0.3s;
+  border: 1px solid rgba(102, 126, 234, 0.1);
 }
 
 .member:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
 .avatar {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   border-radius: 50%;
-  background: #ff8a65;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,21 +216,68 @@ h2, h4 {
   color: white;
   margin-right: 15px;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .meta a {
   text-decoration: none;
-  color: #d84315;
+  color: #667eea;
   font-size: 0.9em;
+  transition: color 0.3s;
 }
 
 .meta a:hover {
+  color: #764ba2;
   text-decoration: underline;
 }
 
 footer {
   text-align: center;
-  padding: 20px;
-  font-size: 0.9em;
-  color: #6d4c41;
+  padding: 30px 20px;
+  font-size: 1em;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin-top: 40px;
+  backdrop-filter: blur(10px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  header .brand {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  header .brand .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  header .brand h1 {
+    font-size: 2.2em;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .card {
+    padding: 25px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }
