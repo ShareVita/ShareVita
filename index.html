@@ -1,162 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShareVita — Reconnecting Communities</title>
-  <link rel="stylesheet" href="sharevita.css" />
-  <!-- Google Fonts for fun, friendly style -->
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShareVita</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      background: linear-gradient(to bottom right, #ede9fe, #dbeafe); /* light purple to light blue */
+      color: #333;
+    }
+
+    header {
+      background-color: #4f46e5;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      color: #4f46e5;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+.card {
+  background: #f8f5ff; /* very light lavender */
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1rem;
+  margin: 0.5rem;
+  text-align: center;
+}
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+  .featured {
+  background: #f3e8ff; /* soft pastel purple */
+  border: 2px solid #9333ea;
+  margin-bottom: 2rem;
+}
+
+    .role {
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="brand">
-        <img src="Screenshot 2025-10-02 at 7.16.46 PM.png" alt="ShareVita Logo" class="logo" />
-        <div>
-          <h1>ShareVita</h1>
-          <p class="lead">Reconnecting communities by helping neighbors share time, skills, and care.</p>
-        </div>
+  <header>
+    <h1>ShareVita</h1>
+    <nav>
+      <a href="#about" style="margin-right: 1rem; color: white;">About</a>
+      <a href="#projects" style="margin-right: 1rem; color: white;">Projects</a>
+      <a href="#team" style="color: white;">Team</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About ShareVita</h2>
+      <p style="text-align: center; font-style: italic; max-width: 700px; margin: auto;">
+        "ShareVita operates on the belief that technology should bring people closer together, not further apart."
+      </p>
+      <p style="margin-top: 1rem; text-align: center; max-width: 800px; margin: auto;">
+        ShareVita is a community-driven nonprofit helping people help each other again. We use technology with purpose and compassion to rebuild neighborhoods and belonging. Our platforms make it easier to share time, skills, and care — reconnecting communities through real-world support and digital tools that feel human.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Our Projects</h2>
+      <div class="card">
+        <h3><a href="https://shareskippy.com" target="_blank">ShareSkippy</a></h3>
+        <p>A free community app that connects dog owners and dog lovers for walks, cuddles, and companionship — built around kindness, not transactions.</p>
       </div>
-      <nav>
-        <a class="btn" href="#about">About</a>
-        <a class="btn" href="#projects">Projects</a>
-        <a class="btn" href="#team">Team</a>
-      </nav>
-    </header>
+      <div class="card">
+        <h3>RideTahoe <span style="font-size: 0.8rem; color: #888;">(in development)</span></h3>
+        <p>A community carpool platform connecting Bay Area and Tahoe travelers — reducing environmental impact while making weekend adventures more social and affordable.</p>
+      </div>
+    </section>
 
-    <main>
-      <!-- About Section -->
-      <section class="card hero" id="about">
-        <h2>About ShareVita</h2>
-        <p class="mission"><strong>ShareVita operates on the belief that technology should bring people closer together, not further apart.</strong></p>
-        <p>We’re a community-driven nonprofit with one goal — <strong>to help people help each other again.</strong> While technology has connected the world, it has also contributed to a growing <em>loneliness epidemic</em>. We believe that when technology is used with <strong>purpose and compassion</strong>, it can rebuild neighborhood and belonging.</p>
-        <p>Our mission is to <strong>reconnect communities</strong> by creating digital platforms that make it easy for neighbors to share time, skills, and care. Whether it’s helping an elderly neighbor walk their dog or sharing a ride to the mountains, ShareVita brings people together through small acts of kindness that make a big difference.</p>
-        <p>We’re starting small — one project, one connection at a time — but our vision is big: a world where technology strengthens human connection instead of replacing it.</p>
-      </section>
+    <section id="team">
+      <h2>Meet the Team</h2>
 
-      <!-- Projects Section -->
-      <section class="card" id="projects">
-        <h2>Our Projects</h2>
-        <div class="projects">
-          <article class="project">
-            <div class="dot"></div>
-            <div>
-              <h4>ShareSkippy</h4>
-              <p class="muted">A free community app that connects dog owners and dog lovers for walks, cuddles, and companionship — built around kindness, not transactions.</p>
-              <a class="btn visit" href="https://shareskippy.com" target="_blank">Visit ShareSkippy</a>
-            </div>
-          </article>
+      <div class="card featured">
+        <h3><a href="https://www.linkedin.com/in/kaia-colban-13a415a2/" target="_blank">Kaia Colban</a></h3>
+        <p class="role">Founder</p>
+      </div>
 
-          <article class="project">
-            <div class="dot"></div>
-            <div>
-              <h4>RideTahoe <span class="muted">(in development)</span></h4>
-              <p class="muted">A community carpool platform connecting Bay Area and Tahoe travelers — reducing environmental impact while making weekend adventures more social and affordable.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Team Section -->
-      <section class="card" id="team">
-        <h2>The Team</h2>
-        
-        <!-- CEO Featured Card -->
-        <div class="ceo-card">
-          <div class="avatar-large">K</div>
-          <div class="ceo-info">
-            <h3>Kaia Colban</h3>
-            <p class="title">Founder & CEO</p>
-            <div class="meta">
-              <a href="https://www.linkedin.com/in/kaia-colban-13a415a2" target="_blank">LinkedIn</a> • 
-              <a href="https://medium.com/@kcolban" target="_blank">Blog</a>
-            </div>
-          </div>
-        </div>
-
-        <h3 class="team-heading">Our Team</h3>
-        <div class="team-grid">
-          <div class="member">
-            <div class="avatar">Ke</div>
-            <div>
-              <div><strong>Kelvin Akpaka</strong> <span class="muted">— Design Engineer Intern</span></div>
-              <div class="meta muted"><a href="https://www.linkedin.com/in/kelvin-akpaka">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">As</div>
-            <div>
-              <div><strong>Asif Mohammad Sovon</strong> <span class="muted">— Community & Marketing Intern</span></div>
-              <div class="meta muted"><a href="https://www.linkedin.com/in/asif-mohammad-sovon/">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">E</div>
-            <div>
-              <div><strong>Eddie Sze</strong> <span class="muted">— Software Engineer Intern</span></div>
-              <div class="meta muted"><a href="https://www.linkedin.com/in/aungkyaw9721/">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">A</div>
-            <div>
-              <div><strong>Ayaan Modak</strong> <span class="muted">— Software Engineer Intern</span></div>
-              <div class="meta muted"><a href="https://www.linkedin.com/in/ayaan-m/">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">M</div>
-            <div>
-              <div><strong>Mary Brown</strong> <span class="muted">— Software Development Intern</span></div>
-              <div class="meta muted"><a href="https://www.linkedin.com/in/mary-brown-565368106/">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">J</div>
-            <div>
-              <div><strong>Jaylene Diaz</strong> <span class="muted">— Marketing Specialist Intern</span></div>
-              <div class="meta muted"><a href="http://www.linkedin.com/in/jaylene-diaz-395921268">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">G</div>
-            <div>
-              <div><strong>Guhan Sattanathan</strong> <span class="muted">— Software Development Intern</span></div>
-              <div class="meta muted"><a href="https://www.linkedin.com/in/guhan-sattanathan/">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">P</div>
-            <div>
-              <div><strong>Pratheek Vardhan</strong> <span class="muted">— Software Development Intern</span></div>
-              <div class="meta muted"><a href="http://www.linkedin.com/in/pratheek-vardhan-bommu-93a1a7215">LinkedIn</a></div>
-            </div>
-          </div>
-
-          <div class="member">
-            <div class="avatar">T</div>
-            <div>
-              <div><strong>Timothy Genz</strong> <span class="muted">— Software Development Intern (Fullstack)</span></div>
-              <div class="meta muted"><a href="https://linkedin.com/in/timothy-genz">LinkedIn</a></div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div>© ShareVita — Reconnecting communities through kindness and tech.</div>
-    </footer>
-  </div>
+      <div class="grid">
+        <div class="card"><h3><a href="https://www.linkedin.com/in/amyshadixon/">Amy Dixon</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3>Anastasiia Shmyhol</h3><p class="role">Marketing Intern</p></div>
+        <div class="card"><h3>Andrew Hu</h3><p class="role">Marketing Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/asif-mohammad-sovon/">Asif Mohammad Sovon</a></h3><p class="role">Marketing Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/ayaan-m/">Ayaan Modak</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/aungkyaw9721/">Eddie Sze</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/guhan-sattanathan/">Guhan Sattanathan</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3>Hannah Menale</h3><p class="role">Marketing Intern</p></div>
+        <div class="card"><h3><a href="http://www.linkedin.com/in/jaylene-diaz-395921268">Jaylene Diaz</a></h3><p class="role">Marketing Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/kelvin-akpaka">Kelvin Akpaka</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/mary-brown-565368106/">Mary Brown</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3><a href="https://www.linkedin.com/in/onokome-ogedengbe/">Onokome Ogedengbe</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3><a href="http://www.linkedin.com/in/pratheek-vardhan-bommu-93a1a7215">Pratheek Vardhan</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3>Prudhvi Sai Ram Gadipe</h3><p class="role">Software Engineer Intern</p></div>
+        <div class="card"><h3><a href="https://linkedin.com/in/timothy-genz">Timothy Genz</a></h3><p class="role">Software Engineer Intern</p></div>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
-
-<!-- Force GitHub Pages rebuild Sat Oct 18 23:06:35 PDT 2025 -->
