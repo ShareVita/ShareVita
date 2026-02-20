@@ -30,7 +30,7 @@
       --text: #111827;
       --muted: #6b7280;
       --border: #e5e7eb;
-      --bg-section: #eef0f3;
+      --bg-section: #eff6ff;
     }
 
     body {
@@ -154,8 +154,27 @@
       margin: 0 0 1.25rem;
       letter-spacing: -0.02em;
     }
-    .hero h1 .black { color: var(--text); }
-    .hero h1 .blue  { color: var(--blue); }
+    .hero h1 .black     { color: var(--text); }
+    .hero h1 .blue-dark { color: #1d4ed8; }
+    .hero h1 .blue-mid  { color: #3b82f6; }
+
+    /* Decorative background blobs */
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      background: #bfdbfe;
+      opacity: 0.55;
+      pointer-events: none;
+      filter: blur(0);
+    }
+    .hero-blob-tl {
+      width: 180px; height: 180px;
+      top: 40px; left: 60px;
+    }
+    .hero-blob-br {
+      width: 140px; height: 140px;
+      bottom: 60px; right: 80px;
+    }
 
     .hero-body {
       font-size: 1.05rem;
@@ -547,11 +566,13 @@
   </nav>
 
   <!-- ── HERO ── -->
-  <div class="hero">
+  <div class="hero" style="position:relative; overflow:hidden;">
+    <div class="hero-blob hero-blob-tl" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-br" aria-hidden="true"></div>
     <h1>
       <span class="black">Happy Dogs.<br></span>
-      <span class="blue">Happy Humans.<br>
-      Happier Neighborhoods.</span>
+      <span class="blue-dark">Happy Humans.<br></span>
+      <span class="blue-mid">Happier Neighborhoods.</span>
     </h1>
     <p class="hero-body">
       ShareSkippy connects dog owners with dog lovers for free walks, hikes, cuddles, and adventures —
