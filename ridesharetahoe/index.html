@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carpool to Lake Tahoe | RideShareTahoe — A ShareVita Project</title>
+  <meta name="description" content="Find or post a carpool to Lake Tahoe. RideShareTahoe connects Bay Area riders to Palisades, Northstar, Heavenly, Kirkwood &amp; more — share gas, cut traffic, and meet mountain friends. Free to use, community-run." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Carpool to Lake Tahoe | RideShareTahoe" />
+  <meta property="og:description" content="Find or post a carpool to Lake Tahoe. Free to use, community-run." />
+  <meta property="og:url" content="https://sharevita.org/ridesharetahoe" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://ridesharetahoe.com/hero-bg.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Carpool to Lake Tahoe | RideShareTahoe" />
+  <meta name="twitter:description" content="Find or post a carpool to Lake Tahoe. Free to use, community-run." />
+  <meta name="twitter:image" content="https://ridesharetahoe.com/hero-bg.png" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    /* ── ShareVita context bar ── */
+    .sv-bar {
+      background: #4f46e5;
+      color: #e0e7ff;
+      text-align: center;
+      padding: 0.5rem 1.5rem;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 10;
+    }
+    .sv-bar a {
+      color: #c7d2fe;
+      text-decoration: underline;
+    }
+    .sv-bar a:hover { color: white; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image: url('https://ridesharetahoe.com/hero-bg.png');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+
+    /* Dark overlay */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.72);
+    }
+
+    /* Animated gradient orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      pointer-events: none;
+    }
+    .orb-1 {
+      width: 420px;
+      height: 420px;
+      background: #0ea5e9;
+      top: -120px;
+      left: -120px;
+      animation: float1 9s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      background: #10b981;
+      bottom: -80px;
+      right: -80px;
+      animation: float2 11s ease-in-out infinite;
+    }
+
+    @keyframes float1 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(35px, 25px); }
+    }
+    @keyframes float2 {
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-25px, -35px); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb { animation: none; }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+      padding: 2rem 1.5rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(14, 165, 233, 0.2);
+      border: 1px solid rgba(14, 165, 233, 0.5);
+      color: #7dd3fc;
+      padding: 0.3rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: white;
+      margin: 0 0 1.25rem;
+      line-height: 1.15;
+    }
+
+    .hero-taglines {
+      font-size: clamp(1.05rem, 2.5vw, 1.45rem);
+      font-weight: 700;
+      margin: 0 0 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      line-height: 1.4;
+    }
+    .t1 { color: #7dd3fc; }
+    .t2 { color: #6ee7b7; }
+    .t3 { color: #fcd34d; }
+
+    .hero-body {
+      color: #cbd5e1;
+      font-size: 1.05rem;
+      max-width: 620px;
+      margin: 0 auto 0.75rem;
+    }
+
+    .hero-tagline-bottom {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.875rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.75rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: #0ea5e9;
+      color: white;
+      box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+    }
+    .btn-primary:hover {
+      background: #0284c7;
+      box-shadow: 0 6px 24px rgba(14, 165, 233, 0.5);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.3);
+      backdrop-filter: blur(8px);
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.2); }
+
+    .btn-outline-sky {
+      background: transparent;
+      color: #0ea5e9;
+      border: 2px solid #0ea5e9;
+    }
+    .btn-outline-sky:hover {
+      background: #0ea5e9;
+      color: white;
+    }
+
+    .btn-dark {
+      background: #1e293b;
+      color: white;
+    }
+    .btn-dark:hover { background: #334155; }
+
+    /* ── Layout ── */
+    section { padding: 5rem 1.5rem; }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .text-center { text-align: center; }
+
+    .section-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #0ea5e9;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      color: #0f172a;
+      margin: 0 0 0.75rem;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      color: #64748b;
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    /* ── Feature cards ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      border: 1px solid #f1f5f9;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0 0 0.5rem;
+    }
+
+    .feature-card p {
+      color: #64748b;
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* ── How it works ── */
+    .steps-section { background: #f8fafc; }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+      text-align: left;
+    }
+
+    .step {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 2.25rem;
+      height: 2.25rem;
+      min-width: 2.25rem;
+      border-radius: 50%;
+      background: #0ea5e9;
+      color: white;
+      font-weight: 800;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(14, 165, 233, 0.4);
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 0.1rem 0 0.3rem;
+    }
+
+    .step p {
+      color: #64748b;
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    /* 16:9 responsive iframe container */
+    .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 8px 48px rgba(0,0,0,0.18);
+    }
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ── Testimonials ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .testimonial {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      border: 1px solid #f1f5f9;
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .testimonial:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+
+    .stars {
+      color: #fbbf24;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .testimonial blockquote {
+      color: #334155;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin: 0 0 1rem;
+      line-height: 1.65;
+    }
+
+    .testimonial .author {
+      font-weight: 700;
+      color: #0f172a;
+      font-size: 0.9rem;
+    }
+
+    /* ── Final CTA ── */
+    .cta-section {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      text-align: center;
+    }
+    .cta-section .section-label { color: #7dd3fc; }
+    .cta-section .section-title { color: white; }
+    .cta-section .section-sub { color: #94a3b8; }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #0a0f1e;
+      color: #64748b;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+    footer strong { color: #e2e8f0; }
+    footer a { color: #7dd3fc; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    footer p { margin: 0.25rem 0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      section { padding: 3rem 1rem; }
+      .hero-ctas,
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ShareVita context bar -->
+  <div class="sv-bar">
+    A project by <a href="https://sharevita.org">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="https://sharevita.org/#projects">See all projects →</a>
+  </div>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="hero-content">
+      <div class="hero-badge">RideShareTahoe</div>
+      <h1>Carpool to Lake Tahoe —<br>Free to use, Community-Run</h1>
+      <div class="hero-taglines" aria-label="Taglines">
+        <span class="t1">Share a Ride.</span>
+        <span class="t2">Start a Crew.</span>
+        <span class="t3">Save the Mountains.</span>
+      </div>
+      <p class="hero-body">
+        RideShareTahoe connects Bay Area residents headed to Lake Tahoe. Find a carpool to
+        Palisades, Northstar, Heavenly, Kirkwood, and more — or post your own and split the drive.
+      </p>
+      <p class="hero-tagline-bottom">No ads. No algorithms. Just neighbors helping neighbors get to the mountains.</p>
+      <div class="hero-ctas">
+        <a href="https://ridesharetahoe.com/login" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="https://ridesharetahoe.com/community" class="btn btn-ghost"
+           target="_blank" rel="noopener noreferrer">Find a Ride</a>
+        <a href="https://ridesharetahoe.com/rides/post" class="btn btn-ghost"
+           target="_blank" rel="noopener noreferrer">Post a Ride</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY RIDESHARETAHOE ── -->
+  <section>
+    <div class="container text-center">
+      <span class="section-label">Why carpool?</span>
+      <h2 class="section-title">Why RideShareTahoe?</h2>
+      <p class="section-sub">Everything you need, nothing you don't. We built this for the community.</p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🏔️</span>
+          <h3>Friendly Community</h3>
+          <p>Join carpools, make friends, and build your Tahoe crew. Meet fellow mountain lovers headed to the same resorts.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">⛽</span>
+          <h3>Shared Costs</h3>
+          <p>Gas isn't cheap — but splitting it is. Share the drive, share the cost, and make Tahoe trips more affordable for everyone.</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🌲</span>
+          <h3>Lighter Footprint</h3>
+          <p>Every shared ride means fewer cars, less traffic, and cleaner air for Tahoe. Do more with less environmental impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── HOW IT WORKS ── -->
+  <section class="steps-section">
+    <div class="container text-center">
+      <span class="section-label">Getting started</span>
+      <h2 class="section-title">See How It Works</h2>
+      <p class="section-sub">Watch the walkthrough, then hit the slopes.</p>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num" aria-hidden="true">1</div>
+          <div>
+            <h3>Create your free account</h3>
+            <p>Sign up with Google or email in seconds — no credit card needed.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" aria-hidden="true">2</div>
+          <div>
+            <h3>Browse or post a ride</h3>
+            <p>Find a carpool heading your way, or post your own and let riders come to you.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num" aria-hidden="true">3</div>
+          <div>
+            <h3>Carpool to the mountains</h3>
+            <p>Split gas, meet fellow mountain lovers, and make Tahoe trips a regular thing.</p>
+          </div>
+        </div>
+      </div>
+      <div class="video-wrap">
+        <iframe
+          src="https://drive.google.com/file/d/1nU3MNDIvSYrcFMCS8rYSHRGox1TuUmXY/preview"
+          title="How to use RideShareTahoe walkthrough video"
+          allow="autoplay"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMMUNITY STORIES ── -->
+  <section>
+    <div class="container text-center">
+      <span class="section-label">Community stories</span>
+      <h2 class="section-title">What riders are saying</h2>
+      <p class="section-sub">Real stories from people who found their Tahoe crew on RideShareTahoe.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"I moved to the Bay last year and didn't know anyone who skied. My first RideShareTahoe trip turned into a crew."</blockquote>
+          <span class="author">— Maya</span>
+        </div>
+        <div class="testimonial">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"I was tired of solo driving and paying to park. Sharing rides saved me money and I met two friends I now hike with."</blockquote>
+          <span class="author">— Chris</span>
+        </div>
+        <div class="testimonial">
+          <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <blockquote>"We wanted to ski more but don't have a car and the Sports Basement ski bus was pricey. This worked perfectly."</blockquote>
+          <span class="author">— Jen &amp; Leo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="section-label">Get started today</span>
+      <h2 class="section-title">Ready to ride? Join the crew.</h2>
+      <p class="section-sub">Free to join, free to use. Find a ride, post a ride, and make Tahoe trips easier all season.</p>
+      <div class="cta-buttons">
+        <a href="https://ridesharetahoe.com/login" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="https://ridesharetahoe.com/community" class="btn btn-ghost"
+           target="_blank" rel="noopener noreferrer">Browse Rides</a>
+        <a href="https://ridesharetahoe.com/our-story" class="btn btn-ghost"
+           target="_blank" rel="noopener noreferrer">Our Story</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>
+      <strong>RideShareTahoe</strong> is a project by
+      <a href="https://sharevita.org" target="_blank" rel="noopener noreferrer">ShareVita</a>,
+      a community-driven nonprofit.
+    </p>
+    <p>
+      <a href="https://ridesharetahoe.com" target="_blank" rel="noopener noreferrer">ridesharetahoe.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://sharevita.org" target="_blank" rel="noopener noreferrer">sharevita.org</a>
+    </p>
+  </footer>
+
+</body>
+</html>
