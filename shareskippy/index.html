@@ -30,7 +30,7 @@
       --text: #111827;
       --muted: #6b7280;
       --border: #e5e7eb;
-      --bg-section: #f9fafb;
+      --bg-section: #eef0f3;
     }
 
     body {
@@ -229,9 +229,13 @@
 
     .how-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-bottom: 2.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .how-grid { grid-template-columns: 1fr; }
     }
 
     .how-card { text-align: center; }
@@ -271,8 +275,12 @@
 
     .why-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .why-grid { grid-template-columns: 1fr; }
     }
 
     .why-card {
@@ -331,8 +339,12 @@
 
     .trust-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
+    }
+
+    @media (max-width: 700px) {
+      .trust-grid { grid-template-columns: 1fr; }
     }
 
     .trust-card {
