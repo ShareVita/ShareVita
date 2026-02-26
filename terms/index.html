@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Terms of Use | ShareVita</title>
+  <meta name="description" content="ShareVita's terms of use — acceptable use, community tools disclaimer, external links, intellectual property, and limitation of liability." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:      #4f3af5;
+      --light:       #f5f3ff;
+      --dark:        #08041e;
+      --grad:        linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:        #111827;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --border-p:    rgba(79, 58, 245, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── SVBar ── */
+    .sv-bar {
+      background: var(--grad);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 0.45rem 1.5rem;
+      font-size: 0.82rem;
+    }
+    .sv-bar a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+    .sv-bar a:hover { color: white; }
+
+    /* ── Nav ── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Layout ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4.5rem;
+    }
+
+    /* ── Page header ── */
+    .page-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .last-updated {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Content ── */
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 0.5rem;
+      color: var(--text);
+    }
+
+    p {
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin: 0 0 1rem;
+    }
+
+    ul {
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      padding-left: 1.5rem;
+      margin: 0 0 1rem;
+    }
+
+    li { margin-bottom: 0.3rem; }
+
+    .section-card {
+      background: var(--light);
+      border: 1px solid var(--border-p);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-card h2 {
+      margin-top: 0;
+      font-size: 1.05rem;
+    }
+
+    .section-card p, .section-card ul {
+      margin-bottom: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    .footer-sv {
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-sv-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; text-decoration: none; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ShareVita context bar -->
+  <div class="sv-bar">
+    <a href="/">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="/#projects">See all projects →</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">ShareVita</a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#team">Team</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+    <span class="page-label">Legal</span>
+    <h1>Terms of Use</h1>
+    <p class="last-updated">Last updated: 2025</p>
+
+    <p>
+      Please read these Terms of Use ("Terms") carefully before using
+      <strong>sharevita.org</strong> (the "Site"), operated by ShareVita, a 501(c)(3) nonprofit
+      organization (EIN 39-4771264) based in Oakland, California. By accessing or using the
+      Site, you agree to be bound by these Terms.
+    </p>
+
+    <div class="section-card">
+      <h2>1. Acceptance of Terms</h2>
+      <p>
+        By accessing sharevita.org, you agree to these Terms and our
+        <a href="/privacy">Privacy Policy</a>. If you do not agree, please do not use the Site.
+        These Terms apply to all visitors and users of sharevita.org.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>2. About ShareVita</h2>
+      <p>
+        ShareVita is a nonprofit organization exempt from federal income tax under Section 501(c)(3)
+        of the Internal Revenue Code. Our mission is to build free, community-run digital tools
+        that bring neighbors together. ShareVita does not charge fees for use of its informational
+        website or for connecting with our programs.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>3. Acceptable use</h2>
+      <p>You agree to use sharevita.org only for lawful purposes. You may not:</p>
+      <ul>
+        <li>Use the Site in any way that violates applicable federal, state, or local law</li>
+        <li>Transmit unsolicited or unauthorized advertising or spam via our contact form</li>
+        <li>Attempt to gain unauthorized access to any part of the Site or its infrastructure</li>
+        <li>Reproduce, distribute, or repurpose ShareVita content without attribution</li>
+        <li>Use the Site to harass, abuse, or harm any person</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>4. Community tools disclaimer</h2>
+      <p>
+        ShareVita operates informational pages for community tools including ShareSkippy
+        (dog sharing) and RideShareTahoe (community carpooling). These tools are community-facilitated.
+        ShareVita does not arrange, supervise, or guarantee any specific interaction, transaction,
+        or outcome between community members.
+      </p>
+      <p>
+        Users of ShareSkippy and RideShareTahoe are responsible for their own safety, arrangements,
+        and decisions. ShareVita is not liable for any loss, injury, or damage arising from community
+        interactions facilitated through these platforms.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>5. External links</h2>
+      <p>
+        sharevita.org links to
+        <a href="https://shareskippy.com" target="_blank" rel="noopener noreferrer">shareskippy.com</a>
+        and
+        <a href="https://ridesharetahoe.com" target="_blank" rel="noopener noreferrer">ridesharetahoe.com</a>,
+        which are separate platforms with their own terms of service, privacy policies, and
+        community guidelines. Your use of those platforms is governed by their respective terms.
+        ShareVita is not responsible for the content, practices, or availability of external sites.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>6. Intellectual property</h2>
+      <p>
+        The content on sharevita.org — including text, design, and branding — is owned by or
+        licensed to ShareVita. You may share links to and quote brief excerpts from our content
+        for non-commercial, informational purposes with attribution. All other use requires
+        written permission from ShareVita.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>7. Limitation of liability</h2>
+      <p>
+        ShareVita provides this Site and its information on an "as is" basis without warranty of
+        any kind. To the fullest extent permitted by law, ShareVita shall not be liable for any
+        indirect, incidental, special, or consequential damages arising from your use of or
+        inability to use the Site or its linked platforms.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>8. Changes to these Terms</h2>
+      <p>
+        ShareVita may update these Terms from time to time. We will note the revision date at the
+        top of this page. Continued use of the Site after changes are posted constitutes acceptance
+        of the updated Terms. We encourage you to review this page periodically.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>9. Contact</h2>
+      <p>
+        If you have questions about these Terms, please contact us at
+        <a href="mailto:team@sharevita.org">team@sharevita.org</a>.
+      </p>
+      <p>
+        ShareVita<br>
+        471 26th St Apt 304<br>
+        Oakland, CA 94612
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="/terms">Terms of Use</a>
+          &nbsp;·&nbsp;
+          <a href="/contact">Contact</a>
+        </p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

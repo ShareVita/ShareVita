@@ -419,15 +419,32 @@
     footer {
       background: #0a0f1e;
       color: #64748b;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.9rem;
-      line-height: 1.8;
+      font-size: 0.85rem;
     }
-    footer strong { color: #e2e8f0; }
-    footer a { color: #7dd3fc; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer p { margin: 0.25rem 0; }
+
+    .footer-upper {
+      padding: 2rem 1.5rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(125, 211, 252, 0.15);
+    }
+    .footer-upper p { margin: 0.25rem 0; line-height: 1.8; }
+    .footer-upper strong { color: #e2e8f0; }
+    .footer-upper a { color: #7dd3fc; text-decoration: none; }
+    .footer-upper a:hover { text-decoration: underline; }
+
+    .footer-sv {
+      padding: 1.75rem 1.5rem;
+    }
+    .footer-sv-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; text-decoration: none; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #4b5563; margin-top: 0.5rem; }
 
     /* ── Responsive ── */
     @media (max-width: 600px) {
@@ -587,16 +604,32 @@
 
   <!-- ── FOOTER ── -->
   <footer>
-    <p>
-      <strong>RideShareTahoe</strong> is a project by
-      <a href="https://sharevita.org" target="_blank" rel="noopener noreferrer">ShareVita</a>,
-      a community-driven nonprofit.
-    </p>
-    <p>
-      <a href="https://ridesharetahoe.com" target="_blank" rel="noopener noreferrer">ridesharetahoe.com</a>
-      &nbsp;·&nbsp;
-      <a href="https://sharevita.org" target="_blank" rel="noopener noreferrer">sharevita.org</a>
-    </p>
+    <div class="footer-upper">
+      <p>
+        <strong>RideShareTahoe</strong> is a project by
+        <a href="/">ShareVita</a>,
+        a community-driven nonprofit.
+      </p>
+      <p>
+        <a href="https://ridesharetahoe.com" target="_blank" rel="noopener noreferrer">ridesharetahoe.com</a>
+        &nbsp;·&nbsp;
+        <a href="/">sharevita.org</a>
+      </p>
+    </div>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="/terms">Terms of Use</a>
+          &nbsp;·&nbsp;
+          <a href="/contact">Contact</a>
+        </p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
 </body>

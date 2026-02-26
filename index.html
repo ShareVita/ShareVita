@@ -3,138 +3,728 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ShareVita</title>
+  <title>ShareVita — Community Tools for Good | 501(c)(3) Nonprofit</title>
+  <meta name="description" content="ShareVita is a 501(c)(3) nonprofit building free, community-run tools that bring neighbors together — including ShareSkippy (dog sharing) and RideShareTahoe (Tahoe carpools)." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ShareVita — Community Tools for Good" />
+  <meta property="og:description" content="ShareVita builds free, community-run tools that make it easier to share resources, support each other, and reduce our footprint." />
+  <meta property="og:url" content="https://sharevita.org" />
+  <meta property="og:type" content="website" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ShareVita — Community Tools for Good" />
+  <meta name="twitter:description" content="ShareVita builds free, community-run tools that bring neighbors together." />
+
   <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:      #4f3af5;
+      --purple-dark: #3d28e0;
+      --blue:        #125dfc;
+      --mid:         #3255fc;
+      --light:       #f5f3ff;
+      --navy:        #1a0d6b;
+      --dark:        #08041e;
+      --grad:        linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:        #111827;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --border-p:    rgba(79, 58, 245, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
-      background: linear-gradient(to bottom right, #ede9fe, #dbeafe); /* light purple to light blue */
-      color: #333;
+      padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
-    header {
-      background-color: #4f46e5;
-      color: white;
-      padding: 1rem 2rem;
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Nav ── */
+    .site-nav {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    header h1 {
-      font-size: 1.5rem;
-      margin: 0;
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    main {
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--text); }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s;
+      text-decoration: none;
+      min-height: 44px;
+      line-height: 1.4;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--grad);
+      color: white;
+      border: none;
+      box-shadow: 0 4px 18px rgba(79, 58, 245, 0.4);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 7px 28px rgba(79, 58, 245, 0.55);
+      opacity: 0.92;
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--purple);
+      border-color: var(--purple);
+    }
+    .btn-outline:hover { background: var(--light); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--muted);
+      border-color: var(--border);
+    }
+    .btn-ghost:hover { background: var(--light); color: var(--text); }
+
+    .btn-white {
+      background: white;
+      color: var(--purple);
+      border: none;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+    }
+    .btn-white:hover { opacity: 0.92; }
+
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.65);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section { padding: 4.5rem 1.5rem; }
+
+    .text-center { text-align: center; }
+
+    /* ── Section labels & headings ── */
+    .section-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-h {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin: 0 0 0.75rem;
+      line-height: 1.2;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 0.8rem;
+    }
+    .section-h::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 44px;
+      height: 3px;
+      background: var(--grad);
+      border-radius: 9999px;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.75;
+    }
+
+    /* ── Hero ── */
+    .hero-outer {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 25%, #e6ecff 60%, #dce8ff 100%);
+    }
+
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(90px);
+      opacity: 0.45;
+    }
+    .hero-blob-tl {
+      width: 500px; height: 500px;
+      top: -120px; left: -160px;
+      background: #c4b5fd;
+    }
+    .hero-blob-br {
+      width: 420px; height: 420px;
+      bottom: -100px; right: -160px;
+      background: #93c5fd;
+    }
+
+    .hero {
+      padding: 5rem 1.5rem 4.5rem;
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(79, 58, 245, 0.07);
+      border: 1px solid rgba(79, 58, 245, 0.22);
+      color: var(--purple);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 0 0 1.25rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .hero-body {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 0 auto 2rem;
+      line-height: 1.75;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.875rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── What We Do ── */
+    .what-section { background: var(--light); }
+
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .what-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem 1.75rem;
+      border: 1px solid var(--border-p);
+      text-align: left;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .what-card:hover {
+      box-shadow: 0 8px 32px rgba(79, 58, 245, 0.1);
+      transform: translateY(-3px);
+    }
+
+    .what-icon {
+      font-size: 1.9rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .what-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.4rem; }
+    .what-card p  { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.6; }
+
+    /* ── Programs / Projects ── */
+    .projects-section { background: white; }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+      text-align: left;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--purple);
+      border-radius: 1rem;
       padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 10px 40px rgba(79, 58, 245, 0.12);
+      transform: translateY(-4px);
     }
 
-    section {
-      margin-bottom: 3rem;
+    .project-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+      display: block;
     }
 
-    h2 {
-      font-size: 1.75rem;
-      color: #4f46e5;
-      margin-bottom: 1rem;
+    .project-card h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin: 0 0 0.75rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin: 0 0 1.5rem;
+    }
+
+    /* ── Impact / Stories ── */
+    .stories-section { background: var(--light); }
+
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      text-align: left;
+      margin-top: 1rem;
+    }
+
+    .story-card {
+      background: white;
+      border: 1px solid var(--border-p);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .story-card:hover {
+      box-shadow: 0 6px 24px rgba(79, 58, 245, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .story-icon {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+    .story-card p {
+      font-size: 0.92rem;
+      color: #374151;
+      margin: 0;
+      line-height: 1.7;
+    }
+
+    /* ── About ── */
+    .about-section { background: white; }
+
+    .about-inner {
+      max-width: 760px;
+      margin: 0 auto;
       text-align: center;
     }
 
-.card {
-  background: #f8f5ff; /* very light lavender */
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  padding: 1rem;
-  margin: 0.5rem;
-  text-align: center;
-}
+    .about-quote {
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--purple);
+      font-weight: 600;
+      margin: 0 0 1.5rem;
+      line-height: 1.55;
+    }
 
-    .grid {
+    .about-inner p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin: 0 0 1rem;
+    }
+
+    .ein-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(79, 58, 245, 0.06);
+      border: 1px solid var(--border-p);
+      color: var(--purple);
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 1.1rem;
+      border-radius: 2rem;
+      margin-top: 0.75rem;
+    }
+
+    /* ── Team ── */
+    .team-section { background: var(--light); }
+
+    .team-featured {
+      background: white;
+      border: 2px solid var(--purple);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      max-width: 340px;
+      margin: 0 auto 1.5rem;
+      text-align: center;
+    }
+    .team-featured h3 { font-size: 1.1rem; font-weight: 700; margin: 0 0 0.25rem; }
+    .team-featured .role { font-size: 0.88rem; color: var(--muted); }
+    .team-featured .links { font-size: 0.85rem; margin-top: 0.6rem; color: var(--purple); }
+
+    .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
       gap: 1rem;
     }
 
-    a {
-      color: #2563eb;
-      text-decoration: none;
+    .team-card {
+      background: white;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      padding: 1.25rem 1rem;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .team-card h3 { font-size: 0.9rem; font-weight: 700; margin: 0 0 0.2rem; }
+    .team-card .role { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── Banner ── */
+    .banner-section {
+      background: var(--grad);
+      color: white;
+      text-align: center;
+      padding: 4.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .banner-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .banner-section h2 {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 900;
+      margin: 0 0 1rem;
+      position: relative;
+      line-height: 1.2;
+    }
+    .banner-section p {
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      opacity: 0.9;
+      line-height: 1.75;
+      position: relative;
+    }
+    .banner-ctas {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
     }
 
-  .featured {
-  background: #f3e8ff; /* soft pastel purple */
-  border: 2px solid #9333ea;
-  margin-bottom: 2rem;
-}
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
 
-    .role {
-      font-size: 0.9rem;
-      color: #555;
+    .footer-sv {
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-sv-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero-ctas, .banner-ctas { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 300px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>ShareVita</h1>
-    <nav>
-      <a href="#about" style="margin-right: 1rem; color: white;">About</a>
-      <a href="#projects" style="margin-right: 1rem; color: white;">Projects</a>
-      <a href="#team" style="color: white;">Team</a>
-    </nav>
-  </header>
 
-  <main>
-    <section id="about">
-      <h2>About ShareVita</h2>
-      <p style="text-align: center; font-style: italic; max-width: 700px; margin: auto;">
-        "<strong>ShareVita operates on the belief that technology should bring people closer together, not further apart.</strong>"
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">ShareVita</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#team">Team</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <div class="hero-outer">
+    <div class="hero-blob hero-blob-tl" aria-hidden="true"></div>
+    <div class="hero-blob hero-blob-br" aria-hidden="true"></div>
+    <div class="hero">
+      <div class="hero-badge">501(c)(3) nonprofit &nbsp;·&nbsp; EIN 39-4771264</div>
+      <h1>Technology that brings neighbors together.</h1>
+      <p class="hero-body">
+        ShareVita builds free, community-run tools that make it easier to share resources,
+        support each other, and reduce our footprint.
       </p>
-      <p style="margin-top: 1rem; text-align: center; max-width: 800px; margin: auto;">
-        ShareVita is a community-driven nonprofit helping people help each other again. We use technology with purpose and compassion to rebuild neighborhoods and belonging. Our platforms make it easier to share time, skills, and care — reconnecting communities through real-world support and digital tools that feel human.
-      </p>
-    </section>
-
-    <section id="projects">
-      <h2>Our Projects</h2>
-      <div class="card">
-        <h3><a href="/shareskippy">ShareSkippy</a></h3>
-        <p>A free community app that connects dog owners and dog lovers for walks, cuddles, and companionship — built around kindness, not transactions.</p>
+      <div class="hero-ctas">
+        <a href="/shareskippy" class="btn btn-primary">Join ShareSkippy →</a>
+        <a href="/ridesharetahoe" class="btn btn-outline">RideShareTahoe →</a>
+        <a href="/contact" class="btn btn-ghost">Volunteer or Partner</a>
       </div>
-      <div class="card">
-        <h3><a href="/ridesharetahoe">RideShareTahoe</a></h3>
-        <p>A community carpool platform connecting Bay Area and Tahoe travelers — reducing environmental impact while making weekend adventures more social and affordable.</p>
+    </div>
+  </div>
+
+  <!-- ── WHAT WE DO ── -->
+  <section class="what-section">
+    <div class="container text-center">
+      <span class="section-label">What we do</span>
+      <h2 class="section-h">Community tools for good</h2>
+      <p class="section-sub">Free platforms that connect people, reduce waste, and strengthen neighborhoods.</p>
+      <div class="what-grid">
+        <div class="what-card">
+          <span class="what-icon" aria-hidden="true">🐾</span>
+          <h3>Pet support &amp; companionship</h3>
+          <p>ShareSkippy connects dog owners and dog lovers so dogs get exercise, owners get help, and neighbors become friends — at no cost to anyone.</p>
+        </div>
+        <div class="what-card">
+          <span class="what-icon" aria-hidden="true">🚗</span>
+          <h3>Low-impact travel &amp; community carpools</h3>
+          <p>RideShareTahoe makes it easy to share rides to Lake Tahoe — fewer cars on the road, shared gas costs, and a built-in community of mountain enthusiasts.</p>
+        </div>
+        <div class="what-card">
+          <span class="what-icon" aria-hidden="true">🌱</span>
+          <h3>More community tools coming</h3>
+          <p>ShareVita is actively building new platforms to help people share time, skills, and resources in their local communities.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="team">
-      <h2>Meet the Team</h2>
+  <!-- ── PROGRAMS / PROJECTS ── -->
+  <section class="projects-section" id="projects">
+    <div class="container text-center">
+      <span class="section-label">Our programs</span>
+      <h2 class="section-h">Active projects</h2>
+      <p class="section-sub">Each project is a free, community-run platform built to solve a real need.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <span class="project-icon" aria-hidden="true">🐾</span>
+          <h3>ShareSkippy</h3>
+          <p>
+            ShareSkippy is a free community platform that connects dog owners with neighbors who
+            want to borrow dogs for walks, hikes, and adventures — without the full-time commitment
+            of ownership. Designed for city dwellers, renters, and dog lovers who can't have their
+            own pet, ShareSkippy works through simple profile matching and community trust. Dogs get
+            more exercise and social time, owners get free reliable help, and communities grow
+            stronger through shared care and real connection.
+          </p>
+          <a href="/shareskippy" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.55rem 1.25rem; min-height: auto;">Learn about ShareSkippy →</a>
+        </div>
+        <div class="project-card">
+          <span class="project-icon" aria-hidden="true">🏔️</span>
+          <h3>RideShareTahoe</h3>
+          <p>
+            RideShareTahoe is a free community carpool platform connecting Bay Area residents headed
+            to Lake Tahoe's ski resorts, trails, and shorelines. Drivers post available seats; riders
+            request to join — no booking fees, no algorithms, just neighbors coordinating trips
+            together. Every shared ride reduces traffic on I-80 and Highway 50, lowers carbon
+            emissions, and makes Tahoe more accessible to people without cars or on limited budgets.
+          </p>
+          <a href="/ridesharetahoe" class="btn btn-primary" style="font-size: 0.9rem; padding: 0.55rem 1.25rem; min-height: auto;">Learn about RideShareTahoe →</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      <div class="card featured">
-        <h3><a href="https://www.linkedin.com/in/kaia-colban-13a415a2/" target="_blank">Kaia Colban</a></h3>
+  <!-- ── IMPACT / STORIES ── -->
+  <section class="stories-section">
+    <div class="container text-center">
+      <span class="section-label">Real-world impact</span>
+      <h2 class="section-h">What this can look like</h2>
+      <p class="section-sub">These are the kinds of connections ShareVita tools make possible every day.</p>
+      <div class="stories-grid">
+        <div class="story-card">
+          <span class="story-icon" aria-hidden="true">🏡</span>
+          <p>A renter without a yard finds a neighbor's dog who needs daily walks. She gets fresh air, exercise, and a furry companion on her lunch break. He gets reliable help for his senior dog — for free. Both get a neighbor they trust.</p>
+        </div>
+        <div class="story-card">
+          <span class="story-icon" aria-hidden="true">🚗</span>
+          <p>A grad student without a car posts on RideShareTahoe looking for a seat to Palisades. A driver two blocks away has an empty seat and wants to split gas. They carpool every weekend that winter and start a regular crew.</p>
+        </div>
+        <div class="story-card">
+          <span class="story-icon" aria-hidden="true">❤️</span>
+          <p>An elderly dog owner recovering from surgery connects with three neighbors through ShareSkippy. Her dog still gets daily walks, she stays connected to her block, and new friendships form in the process.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about-section" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <span class="section-label">About ShareVita</span>
+        <h2 class="section-h">Our mission</h2>
+        <p class="about-quote">
+          "ShareVita operates on the belief that technology should bring people closer together, not further apart."
+        </p>
+        <p>
+          ShareVita is a community-driven nonprofit helping people help each other again. We use
+          technology with purpose and compassion to rebuild neighborhoods and belonging. Our
+          platforms make it easier to share time, skills, and care — reconnecting communities
+          through real-world support and digital tools that feel human.
+        </p>
+        <p>
+          ShareVita has received IRS determination as a 501(c)(3) public charity. All programs and
+          platforms are free to use. We do not sell user data or charge fees for community
+          participation. Donations and volunteers help us grow and build more tools.
+        </p>
+        <div class="ein-badge">
+          501(c)(3) public charity &nbsp;·&nbsp; EIN 39-4771264
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <section class="team-section" id="team">
+    <div class="container text-center">
+      <span class="section-label">The people</span>
+      <h2 class="section-h">Meet the team</h2>
+      <p class="section-sub" style="margin-bottom: 2rem;">The volunteers and interns building ShareVita's community tools.</p>
+
+      <div class="team-featured">
+        <h3><a href="https://www.linkedin.com/in/kaia-colban-13a415a2/" target="_blank" rel="noopener noreferrer" style="color: var(--purple);">Kaia Colban</a></h3>
         <p class="role">Founder</p>
-        <div style="margin-top: 0.5rem;">
-          <a href="https://www.linkedin.com/in/kaia-colban-13a415a2/" target="_blank" style="margin-right: 1rem;">LinkedIn</a> • 
-          <a href="https://medium.com/@kcolban" target="_blank">Blog</a>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/kaia-colban-13a415a2/" target="_blank" rel="noopener noreferrer" style="color: var(--purple);">LinkedIn</a>
+          &nbsp;·&nbsp;
+          <a href="https://medium.com/@kcolban" target="_blank" rel="noopener noreferrer" style="color: var(--purple);">Blog</a>
         </div>
       </div>
 
-      <div class="grid">
-        <div class="card"><h3>Anastasiia Shmyhol</h3><p class="role">Marketing Intern</p></div>
-        <div class="card"><h3>Andrew Hu</h3><p class="role">Marketing Intern</p></div>
-        <div class="card"><h3>Hannah Menale</h3><p class="role">Marketing Intern</p></div>
-        <div class="card"><h3><a href="http://www.linkedin.com/in/jaylene-diaz-395921268">Jaylene Diaz</a></h3><p class="role">Marketing Intern</p></div>
-        <div class="card"><h3><a href="https://www.linkedin.com/in/aungkyaw9721/">Eddie Sze</a></h3><p class="role">Software Engineer Intern</p></div>
-        <div class="card"><h3><a href="https://www.linkedin.com/in/guhan-sattanathan/">Guhan Sattanathan</a></h3><p class="role">Software Engineer Intern</p></div>
-        <div class="card"><h3><a href="https://www.linkedin.com/in/onokome-ogedengbe/">Onokome Ogedengbe</a></h3><p class="role">Software Engineer Intern</p></div>
-        <div class="card"><h3><a href="https://linkedin.com/in/timothy-genz">Timothy Genz</a></h3><p class="role">Software Engineer Intern</p></div>
+      <div class="team-grid">
+        <div class="team-card"><h3>Anastasiia Shmyhol</h3><p class="role">Marketing Intern</p></div>
+        <div class="team-card"><h3>Andrew Hu</h3><p class="role">Marketing Intern</p></div>
+        <div class="team-card"><h3>Hannah Menale</h3><p class="role">Marketing Intern</p></div>
+        <div class="team-card"><h3><a href="http://www.linkedin.com/in/jaylene-diaz-395921268" target="_blank" rel="noopener noreferrer">Jaylene Diaz</a></h3><p class="role">Marketing Intern</p></div>
+        <div class="team-card"><h3><a href="https://www.linkedin.com/in/aungkyaw9721/" target="_blank" rel="noopener noreferrer">Eddie Sze</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="team-card"><h3><a href="https://www.linkedin.com/in/guhan-sattanathan/" target="_blank" rel="noopener noreferrer">Guhan Sattanathan</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="team-card"><h3><a href="https://www.linkedin.com/in/onokome-ogedengbe/" target="_blank" rel="noopener noreferrer">Onokome Ogedengbe</a></h3><p class="role">Software Engineer Intern</p></div>
+        <div class="team-card"><h3><a href="https://linkedin.com/in/timothy-genz" target="_blank" rel="noopener noreferrer">Timothy Genz</a></h3><p class="role">Software Engineer Intern</p></div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- ── BANNER ── -->
+  <section class="banner-section">
+    <div class="container">
+      <h2>Help build tools that bring people together.</h2>
+      <p>
+        ShareVita is volunteer-powered. If you're a developer, designer, marketer, or community
+        organizer who believes in technology for good, we'd love to hear from you.
+      </p>
+      <div class="banner-ctas">
+        <a href="/contact" class="btn btn-white">Volunteer or Partner</a>
+        <a href="/shareskippy" class="btn btn-outline-white">Explore ShareSkippy</a>
+        <a href="/ridesharetahoe" class="btn btn-outline-white">Explore RideShareTahoe</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="/terms">Terms of Use</a>
+          &nbsp;·&nbsp;
+          <a href="/contact">Contact</a>
+        </p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
 </body>
 </html>

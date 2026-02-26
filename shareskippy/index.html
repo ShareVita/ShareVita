@@ -692,6 +692,24 @@
       line-height: 1.7;
     }
 
+    /* ── ShareVita global footer bar ── */
+    .footer-sv {
+      border-top: 1px solid rgba(79, 58, 245, 0.25);
+      padding: 1.75rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .footer-sv-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 0.78rem;
+      line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.5rem; }
+
     /* ── Responsive ── */
     @media (max-width: 700px) {
       .nav-links { display: none; }
@@ -942,15 +960,29 @@
       <div class="footer-col">
         <h4>Legal</h4>
         <ul>
-          <li><a href="https://shareskippy.com" target="_blank" rel="noopener noreferrer">Terms of Service</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
           <li><a href="https://shareskippy.com" target="_blank" rel="noopener noreferrer">Community Guidelines</a></li>
-          <li><a href="https://shareskippy.com" target="_blank" rel="noopener noreferrer">Privacy Policy</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <p>© 2025 ShareSkippy. All rights reserved.</p>
-      <p>ShareSkippy is a free marketplace platform. Users are responsible for their own safety and arrangements.</p>
+      <p>ShareSkippy is a free community platform. Users are responsible for their own safety and arrangements.</p>
+    </div>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="/terms">Terms of Use</a>
+          &nbsp;·&nbsp;
+          <a href="/contact">Contact</a>
+        </p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
     </div>
   </footer>
 

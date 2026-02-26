@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy | ShareVita</title>
+  <meta name="description" content="ShareVita's privacy policy — how we handle contact form submissions, analytics, cookies, and your personal information. We don't sell or share your data." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:      #4f3af5;
+      --light:       #f5f3ff;
+      --dark:        #08041e;
+      --grad:        linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:        #111827;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --border-p:    rgba(79, 58, 245, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--purple); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── SVBar ── */
+    .sv-bar {
+      background: var(--grad);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 0.45rem 1.5rem;
+      font-size: 0.82rem;
+    }
+    .sv-bar a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+    .sv-bar a:hover { color: white; }
+
+    /* ── Nav ── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav-links a { color: var(--muted); }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ── Layout ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 4.5rem;
+    }
+
+    /* ── Page header ── */
+    .page-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 900;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .last-updated {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── Content ── */
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 0.5rem;
+      color: var(--text);
+    }
+
+    p {
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin: 0 0 1rem;
+    }
+
+    ul {
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      padding-left: 1.5rem;
+      margin: 0 0 1rem;
+    }
+
+    li { margin-bottom: 0.3rem; }
+
+    .section-card {
+      background: var(--light);
+      border: 1px solid var(--border-p);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-card h2 {
+      margin-top: 0;
+      font-size: 1.05rem;
+    }
+
+    .section-card p, .section-card ul {
+      margin-bottom: 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    .footer-sv {
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-sv-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; text-decoration: none; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ShareVita context bar -->
+  <div class="sv-bar">
+    <a href="/">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="/#projects">See all projects →</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">ShareVita</a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#team">Team</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+    <span class="page-label">Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: 2025</p>
+
+    <p>
+      ShareVita ("we," "us," or "our") is a 501(c)(3) nonprofit organization (EIN 39-4771264)
+      based in Oakland, California. This Privacy Policy explains how we handle information on
+      <strong>sharevita.org</strong>. We are committed to protecting your privacy and being
+      transparent about our practices.
+    </p>
+
+    <div class="section-card">
+      <h2>1. What data we collect</h2>
+      <p>
+        sharevita.org does not require you to create an account or log in. The only personal
+        information we may receive is what you voluntarily provide through our contact form:
+      </p>
+      <ul>
+        <li>Your name (optional)</li>
+        <li>Your email address (optional)</li>
+        <li>The message you write</li>
+      </ul>
+      <p>
+        This information is sent directly to our team via email. We do not store it in a database
+        or any third-party service on our end.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>2. Analytics</h2>
+      <p>
+        No analytics or tracking services are currently configured on sharevita.org. We do not use
+        Google Analytics, Mixpanel, or any other analytics platform on this site. We do not collect
+        data about your browsing behavior, page views, or time on site.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>3. Cookies</h2>
+      <p>
+        sharevita.org does not set any cookies. We have no advertising cookies, tracking cookies,
+        session cookies, or persistent cookies of any kind on this website.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>4. How your information is used</h2>
+      <p>
+        If you contact us through our contact form or directly by email, we use your information
+        solely to respond to your inquiry. We do not:
+      </p>
+      <ul>
+        <li>Sell your information to any third party</li>
+        <li>Share your information with advertisers</li>
+        <li>Add you to a mailing list without your explicit consent</li>
+        <li>Use your contact information for any purpose other than responding to you</li>
+      </ul>
+    </div>
+
+    <div class="section-card">
+      <h2>5. Data retention</h2>
+      <p>
+        Inquiries submitted via email are retained only as long as reasonably necessary to respond
+        to and resolve your request. We do not maintain long-term databases of contact submissions.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>6. Your rights</h2>
+      <p>
+        You have the right to request deletion of any personal information you have shared with us.
+        To make a deletion request, email us at
+        <a href="mailto:team@sharevita.org">team@sharevita.org</a>
+        with the subject line "Data Deletion Request." We will respond within a reasonable
+        timeframe.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>7. External links</h2>
+      <p>
+        sharevita.org links to external websites and platforms including
+        <a href="https://shareskippy.com" target="_blank" rel="noopener noreferrer">shareskippy.com</a>
+        and
+        <a href="https://ridesharetahoe.com" target="_blank" rel="noopener noreferrer">ridesharetahoe.com</a>.
+        These are separate platforms with their own privacy policies and data practices.
+        ShareVita is not responsible for the privacy practices of external sites. We encourage
+        you to review their policies when visiting those platforms.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>8. Contact for privacy questions</h2>
+      <p>
+        If you have questions or concerns about this Privacy Policy or how ShareVita handles
+        personal information, please contact us at
+        <a href="mailto:team@sharevita.org">team@sharevita.org</a>.
+      </p>
+      <p>
+        ShareVita<br>
+        471 26th St Apt 304<br>
+        Oakland, CA 94612
+      </p>
+    </div>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="/terms">Terms of Use</a>
+          &nbsp;·&nbsp;
+          <a href="/contact">Contact</a>
+        </p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

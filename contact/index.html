@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact ShareVita | 501(c)(3) Nonprofit</title>
+  <meta name="description" content="Contact ShareVita — a 501(c)(3) nonprofit building free community tools. Reach us at team@sharevita.org or use the contact form below." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:      #4f3af5;
+      --purple-dark: #3d28e0;
+      --blue:        #125dfc;
+      --light:       #f5f3ff;
+      --dark:        #08041e;
+      --grad:        linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:        #111827;
+      --muted:       #6b7280;
+      --border:      #e5e7eb;
+      --border-p:    rgba(79, 58, 245, 0.15);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── SVBar ── */
+    .sv-bar {
+      background: var(--grad);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 0.45rem 1.5rem;
+      font-size: 0.82rem;
+    }
+    .sv-bar a { color: rgba(255,255,255,0.85); text-decoration: underline; }
+    .sv-bar a:hover { color: white; }
+
+    /* ── Nav ── */
+    .site-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      font-size: 1.2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--purple); font-weight: 600; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    main {
+      padding: 3.5rem 1.5rem 4rem;
+    }
+
+    /* ── Page header ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .page-label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 0.6rem;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+
+    .page-header p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── Contact cards ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-card {
+      background: var(--light);
+      border: 1px solid var(--border-p);
+      border-radius: 1rem;
+      padding: 1.75rem;
+    }
+
+    .contact-card-icon {
+      font-size: 1.75rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .contact-card h2 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.4rem;
+    }
+
+    .contact-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .contact-card a {
+      color: var(--purple);
+      font-weight: 600;
+    }
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── Form ── */
+    .form-section h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 0 0 0.4rem;
+    }
+
+    .form-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 0 1.5rem;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .form-field label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      font-family: inherit;
+      font-size: 0.95rem;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.5rem;
+      color: var(--text);
+      background: white;
+      transition: border-color 0.18s, box-shadow 0.18s;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(79, 58, 245, 0.1);
+    }
+
+    .form-field textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 2rem;
+      background: var(--grad);
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      min-height: 44px;
+      box-shadow: 0 4px 18px rgba(79, 58, 245, 0.4);
+      transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s;
+      align-self: flex-start;
+    }
+    .btn-submit:hover {
+      opacity: 0.92;
+      transform: translateY(-1px);
+      box-shadow: 0 7px 28px rgba(79, 58, 245, 0.55);
+    }
+
+    .form-disclaimer {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      line-height: 1.6;
+    }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      font-size: 0.85rem;
+    }
+
+    .footer-sv {
+      padding: 2.5rem 1.5rem;
+    }
+    .footer-sv-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.75rem; }
+
+    /* ── Responsive ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .btn-submit { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ShareVita context bar -->
+  <div class="sv-bar">
+    <a href="/">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="/#projects">See all projects →</a>
+  </div>
+
+  <!-- ── NAV ── -->
+  <nav class="site-nav">
+    <a href="/" class="nav-logo">ShareVita</a>
+    <div class="nav-links">
+      <a href="/#about">About</a>
+      <a href="/#projects">Projects</a>
+      <a href="/#team">Team</a>
+      <a href="/contact" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ── MAIN ── -->
+  <main>
+    <div class="container">
+
+      <div class="page-header">
+        <span class="page-label">Get in touch</span>
+        <h1>Contact ShareVita</h1>
+        <p>We'd love to hear from you — whether you want to volunteer, partner, ask a question, or just say hello. No login required.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <span class="contact-card-icon" aria-hidden="true">✉️</span>
+          <h2>Email us</h2>
+          <p>Reach our team directly at<br><a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card-icon" aria-hidden="true">📍</span>
+          <h2>Mailing address</h2>
+          <p>ShareVita<br>471 26th St Apt 304<br>Oakland, CA 94612</p>
+        </div>
+        <div class="contact-card">
+          <span class="contact-card-icon" aria-hidden="true">🤝</span>
+          <h2>Volunteer or partner</h2>
+          <p>ShareVita is volunteer-powered. We welcome developers, designers, marketers, and community organizers.</p>
+        </div>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="form-section">
+        <h2>Send us a message</h2>
+        <p class="form-note">This form opens your email client with your message pre-filled. No account needed.</p>
+
+        <form class="contact-form" id="contact-form" action="mailto:team@sharevita.org" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="Name" placeholder="Jane Smith" autocomplete="name" />
+            </div>
+            <div class="form-field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="Email" placeholder="jane@example.com" autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">Message</label>
+            <textarea id="message" name="Message" placeholder="Tell us about yourself, your project idea, or what you'd like to help with…"></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+          <p class="form-disclaimer">
+            Clicking "Send Message" opens your default email client with your message pre-filled.
+            Alternatively, email us directly at <a href="mailto:team@sharevita.org" style="color: var(--purple);">team@sharevita.org</a>.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p>
+          <a href="/privacy">Privacy Policy</a>
+          &nbsp;·&nbsp;
+          <a href="/terms">Terms of Use</a>
+          &nbsp;·&nbsp;
+          <a href="/contact">Contact</a>
+        </p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
