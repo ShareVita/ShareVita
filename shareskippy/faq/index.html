@@ -17,22 +17,18 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-      --purple:       #4f3af5;
-      --purple-dark:  #3d28e0;
-      --blue:         #125dfc;
-      --mid:          #3255fc;
-      --light:        #f5f3ff;
-      --navy:         #1a0d6b;
-      --dark:         #08041e;
-      --grad:         linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
-      --text:         #111827;
-      --muted:        #6b7280;
-      --border:       #e5e7eb;
-      --border-p:     rgba(79, 58, 245, 0.15);
+      --purple:   #4f3af5;
+      --navy:     #1a0d6b;
+      --dark:     #08041e;
+      --grad:     linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:     #111827;
+      --muted:    #6b7280;
+      --light:    #f8f6f1;
+      --border:   #e5e7eb;
+      --border-p: rgba(79, 58, 245, 0.12);
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0; padding: 0;
@@ -41,9 +37,9 @@
       background: white;
       -webkit-font-smoothing: antialiased;
     }
-
     a { color: inherit; text-decoration: none; }
 
+    /* ── Context bar ── */
     .sv-bar {
       background: var(--grad);
       color: rgba(255,255,255,0.92);
@@ -54,251 +50,211 @@
     .sv-bar a { color: rgba(255,255,255,0.8); text-decoration: underline; }
     .sv-bar a:hover { color: white; }
 
+    /* ── Nav ── */
     nav {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-
     .nav-logo {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.1rem;
+      font-weight: 900;
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }
-
     .nav-links {
       display: flex;
       gap: 1.5rem;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--muted);
     }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--purple); font-weight: 600; }
 
+    /* ── Buttons ── */
     .btn {
       display: inline-block;
-      padding: 0.65rem 1.5rem;
+      padding: 0.65rem 1.4rem;
       border-radius: 0.5rem;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      border: 2px solid transparent;
-      transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s;
+      border: 1.5px solid transparent;
+      transition: box-shadow 0.18s, opacity 0.15s;
       text-decoration: none;
     }
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-blue {
+    .btn-primary {
       background: var(--grad);
       color: white;
-      border: none;
-      box-shadow: 0 4px 18px rgba(79, 58, 245, 0.4);
+      border-color: transparent;
+      box-shadow: 0 3px 14px rgba(79,58,245,0.35);
     }
-    .btn-blue:hover { box-shadow: 0 7px 28px rgba(79, 58, 245, 0.55); opacity: 0.92; }
-
+    .btn-primary:hover { box-shadow: 0 5px 22px rgba(79,58,245,0.5); opacity: 0.92; }
     .btn-outline {
       background: white;
       color: var(--purple);
-      border-color: var(--purple);
+      border-color: rgba(79,58,245,0.4);
     }
-    .btn-outline:hover { background: var(--light); }
+    .btn-outline:hover { border-color: var(--purple); background: #faf9ff; }
 
-    .btn-outline-white {
-      background: transparent;
-      color: white;
-      border-color: rgba(255,255,255,0.65);
+    /* ── Layout ── */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ── Hero ── */
+    .page-hero {
+      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 30%, #e6ecff 70%, #dce8ff 100%);
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
     }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    .page-hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.75;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-    .container {
-      max-width: 1080px;
+    /* ── FAQ layout ── */
+    .faq-outer {
+      padding: 3.5rem 1.5rem 5rem;
+    }
+    .faq-inner {
+      max-width: 700px;
       margin: 0 auto;
-      padding: 0 1.5rem;
     }
 
-    section { padding: 4.5rem 1.5rem; }
-
-    .section-label {
-      display: block;
+    /* Group header */
+    .faq-group { margin-bottom: 3rem; }
+    .faq-group-title {
       font-size: 0.72rem;
       font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--purple);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-h {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.8rem;
-    }
-    .section-h::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 44px;
-      height: 3px;
-      background: var(--grad);
-      border-radius: 9999px;
-    }
-
-    /* ── Page Hero ── */
-    .page-hero-outer {
-      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 25%, #e6ecff 60%, #dce8ff 100%);
-      padding: 4rem 1.5rem 3.5rem;
-      text-align: center;
-    }
-
-    .hero-badge {
-      display: inline-flex;
+      margin: 0 0 0.5rem;
+      display: flex;
       align-items: center;
-      gap: 0.4rem;
-      background: rgba(79, 58, 245, 0.07);
-      border: 1px solid rgba(79, 58, 245, 0.22);
-      color: var(--purple);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.35rem 1rem;
-      border-radius: 2rem;
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      gap: 0.6rem;
+    }
+    .faq-group-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
     }
 
-    .page-hero-outer h1 {
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 900;
-      line-height: 1.15;
-      margin: 0 0 1rem;
-      letter-spacing: -0.02em;
+    /* Accordion items */
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 1.1rem 0;
+      font-size: 0.97rem;
+      font-weight: 600;
       color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      font-family: inherit;
+      line-height: 1.45;
     }
-
-    .page-hero-outer p {
+    .faq-q:hover { color: var(--purple); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1rem;
+      font-weight: 300;
       color: var(--muted);
-      max-width: 560px;
-      margin: 0 auto 1.75rem;
+      transition: all 0.2s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon {
+      background: var(--purple);
+      border-color: var(--purple);
+      color: white;
+      transform: rotate(45deg);
+    }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.28s ease;
+    }
+    .faq-item.open .faq-a { max-height: 400px; }
+    .faq-a-inner {
+      padding-bottom: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--muted);
       line-height: 1.75;
     }
+    .faq-a-inner a { color: var(--purple); text-decoration: underline; }
 
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ── FAQ Sections ── */
-    .faq-section { background: white; }
-    .faq-section.alt { background: var(--light); }
-
-    .faq-section h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      margin: 0 0 2.5rem;
-      text-align: center;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .faq-card {
-      background: white;
-      border: 1px solid var(--border-p);
-      border-left: 3px solid var(--purple);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .faq-section.alt .faq-card { background: white; }
-    .faq-card:hover {
-      box-shadow: 0 6px 24px rgba(79, 58, 245, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .faq-card h3 {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      color: var(--text);
-      line-height: 1.4;
-    }
-
-    .faq-card p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin: 0;
-      line-height: 1.65;
-    }
-
-    .faq-card p a {
-      color: var(--purple);
-      text-decoration: underline;
-    }
-
-    /* ── CTA Banner ── */
+    /* ── CTA ── */
     .cta-section {
-      background: linear-gradient(150deg, #1a0d6b 0%, #0f0835 55%, #08041e 100%);
+      background: var(--grad);
       color: white;
       text-align: center;
       padding: 5rem 1.5rem;
-      position: relative;
-      overflow: hidden;
     }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -120px; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(79, 58, 245, 0.3) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
     .cta-section h2 {
       font-size: clamp(1.5rem, 3.5vw, 2.2rem);
       font-weight: 900;
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.65rem;
       line-height: 1.2;
-      position: relative;
     }
-
     .cta-section p {
-      max-width: 480px;
+      max-width: 440px;
       margin: 0 auto 2rem;
-      opacity: 0.75;
+      opacity: 0.85;
       font-size: 0.95rem;
-      position: relative;
     }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-white {
+      background: white;
+      color: var(--navy);
+      border-color: white;
+      font-weight: 700;
     }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border-color: rgba(255,255,255,0.6);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
 
     /* ── Footer ── */
     footer {
@@ -307,7 +263,6 @@
       padding: 3rem 1.5rem 2rem;
       font-size: 0.85rem;
     }
-
     .footer-inner {
       max-width: 1080px;
       margin: 0 auto 2rem;
@@ -315,54 +270,34 @@
       grid-template-columns: 2fr 1fr 1fr;
       gap: 2.5rem;
     }
-
     .footer-brand .logo {
-      font-size: 1.1rem;
+      font-size: 1rem;
       font-weight: 800;
       color: white;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.65rem;
     }
-
-    .footer-brand p {
-      font-size: 0.82rem;
-      line-height: 1.6;
-      max-width: 280px;
-    }
-
+    .footer-brand p { font-size: 0.82rem; line-height: 1.6; max-width: 260px; }
     .footer-col h4 {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: white;
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.65rem;
     }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0; margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .footer-col ul a { color: #9ca3af; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col ul a { color: #9ca3af; font-size: 0.85rem; }
     .footer-col ul a:hover { color: white; }
-
     .footer-bottom {
       max-width: 1080px;
       margin: 0 auto;
       padding-top: 1.5rem;
-      border-top: 1px solid rgba(79, 58, 245, 0.2);
+      border-top: 1px solid rgba(255,255,255,0.07);
       font-size: 0.78rem;
       line-height: 1.7;
     }
-
     .footer-sv {
-      border-top: 1px solid rgba(79, 58, 245, 0.25);
+      border-top: 1px solid rgba(79, 58, 245, 0.2);
       padding: 1.75rem 1.5rem;
       margin-top: 1.5rem;
     }
@@ -380,23 +315,20 @@
 
     @media (max-width: 700px) {
       .nav-links { display: none; }
-      .hero-ctas, .cta-buttons { flex-direction: column; align-items: center; }
+      .hero-ctas, .cta-btns { flex-direction: column; align-items: center; }
       .btn { width: 100%; max-width: 280px; text-align: center; }
       .footer-inner { grid-template-columns: 1fr; }
-      .faq-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6NR8DDP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
   <div class="sv-bar">
     A project by <a href="https://sharevita.org">ShareVita</a>
     &nbsp;·&nbsp;
-    <a href="https://sharevita.org/shareskippy">← Back to ShareSkippy</a>
+    <a href="/shareskippy">← Back to ShareSkippy</a>
   </div>
 
   <nav>
@@ -407,158 +339,245 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/shareskippy/borrow-a-dog">Borrow a Dog</a>
       <a href="/shareskippy/faq" class="active">FAQ</a>
     </div>
-    <a href="https://shareskippy.com/signup" class="btn btn-blue"
-       target="_blank" rel="noopener noreferrer" style="padding: 0.5rem 1.1rem; font-size: 0.88rem;">Join Free</a>
+    <a href="https://shareskippy.com/signup" class="btn btn-primary"
+       target="_blank" rel="noopener noreferrer" style="padding:0.45rem 1rem;font-size:0.85rem;">Join Free</a>
   </nav>
 
-  <!-- Hero -->
-  <div class="page-hero-outer">
+  <div class="page-hero">
     <div class="container">
-      <div class="hero-badge">🐾 Questions Answered</div>
-      <h1>Frequently Asked Questions</h1>
+      <h1>Frequently Asked<br>Questions</h1>
       <p>Everything you need to know about ShareSkippy — how it works, who it's for, and how we keep the community safe.</p>
       <div class="hero-ctas">
-        <a href="https://shareskippy.com/signup" class="btn btn-blue"
+        <a href="https://shareskippy.com/signup" class="btn btn-primary"
            target="_blank" rel="noopener noreferrer">Join Free</a>
-        <a href="/shareskippy/how-it-works" class="btn btn-outline">See How It Works</a>
+        <a href="/shareskippy/how-it-works" class="btn btn-outline">How It Works</a>
       </div>
     </div>
   </div>
 
-  <!-- General Questions -->
-  <section class="faq-section">
-    <div class="container">
-      <span class="section-label">The Basics</span>
-      <h2 class="section-h">General Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-card">
-          <h3>Is ShareSkippy really free?</h3>
-          <p>Yes — always. ShareSkippy is a nonprofit community platform run by <a href="https://sharevita.org">ShareVita</a>. There are no fees, no subscriptions, and no hidden charges. Dog sharing is powered by community goodwill, not transactions.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What cities is ShareSkippy available in?</h3>
-          <p>ShareSkippy is active in 50+ cities across the US and growing. When you sign up, you'll see dogs and dog lovers in your area. If your city is small, you might be one of the first — and that's a great thing.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Do I need to create an account?</h3>
-          <p>Yes. Creating a free account lets you connect with people in your neighborhood, post your dog, or browse dogs near you. Signup takes about two minutes — no credit card needed.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What is ShareSkippy, exactly?</h3>
-          <p>ShareSkippy is a community platform that connects dog owners who need help with dog lovers who want to spend time with dogs — for free. Think of it as a neighborhood network for dogs and the people who love them.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Is ShareSkippy an app?</h3>
-          <p>ShareSkippy works in your browser on any device — phone, tablet, or desktop. You don't need to download anything to get started at <a href="https://shareskippy.com/signup" target="_blank" rel="noopener noreferrer">shareskippy.com</a>.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Who runs ShareSkippy?</h3>
-          <p>ShareSkippy is a project of ShareVita, a 501(c)(3) nonprofit based in Oakland, CA. Our mission is to build community through sharing. We're a small team driven by a big belief: neighbors helping neighbors changes lives.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <div class="faq-outer">
+    <div class="faq-inner">
 
-  <!-- For Dog Owners -->
-  <section class="faq-section alt">
-    <div class="container">
-      <span class="section-label">For Dog Owners</span>
-      <h2 class="section-h">Dog Owner Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-card">
-          <h3>How do I list my dog on ShareSkippy?</h3>
-          <p>Sign up at shareskippy.com, then create a profile for your dog — photo, name, breed, energy level, and what kind of help you're looking for (walks, playdates, etc.). It takes about 5 minutes.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Can I choose who walks my dog?</h3>
-          <p>Absolutely. You approve every connection. No one interacts with your dog without your explicit OK. You can review profiles, read community reviews, and message people before agreeing to anything.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What if something goes wrong during a walk?</h3>
-          <p>Every interaction includes emergency contact information shared between both parties. Our community guidelines also set clear expectations, and all members are subject to community reviews. If an issue arises, contact our team at <a href="mailto:team@sharevita.org">team@sharevita.org</a>.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Is my home address shared?</h3>
-          <p>No. ShareSkippy uses approximate location — never your exact address. You coordinate meeting details privately with people you've chosen to connect with.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What if my dog has special needs?</h3>
-          <p>You can include all of that in your dog's profile — medications, behavioral notes, leash preferences, foods to avoid. You're always in control of what's shared and who you connect with.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What does "sharing" my dog actually mean?</h3>
-          <p>It means allowing a vetted community member to take your dog for a walk, hike, or playdate — on your terms, at your schedule. You decide the frequency, duration, and who's involved. Nothing is mandatory.</p>
+      <!-- General -->
+      <div class="faq-group">
+        <div class="faq-group-title">General</div>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is ShareSkippy really free?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Yes — always. ShareSkippy is a nonprofit community platform run by <a href="https://sharevita.org">ShareVita</a>. There are no fees, no subscriptions, and no charges between members. Dog sharing is powered by community goodwill, not transactions.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What cities is ShareSkippy available in?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>ShareSkippy is active in 50+ cities across the US and growing. When you sign up, you'll see dogs and dog lovers in your area. If your city is small, you might be one of the first — and that's a great thing.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Do I need to create an account?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Yes. Creating a free account lets you connect with neighbors, post your dog, or browse dogs near you. Signup takes about two minutes — no credit card needed.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What exactly is ShareSkippy?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>ShareSkippy connects dog owners who need help with dog lovers who want to spend time with dogs — for free. Think of it as a neighborhood network built around dogs and the people who love them.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is it an app I need to download?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>ShareSkippy works in your browser on any device — phone, tablet, or desktop. No download required. Just head to <a href="https://shareskippy.com/signup" target="_blank" rel="noopener noreferrer">shareskippy.com</a> to get started.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Who runs ShareSkippy?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>ShareSkippy is a project of ShareVita, a 501(c)(3) nonprofit based in Oakland, CA. Our mission is to build community through sharing — and we believe dogs are one of the best ways to do that.</p>
+            </div></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- For Dog Lovers -->
-  <section class="faq-section">
-    <div class="container">
-      <span class="section-label">For Dog Lovers</span>
-      <h2 class="section-h">Dog Lover Questions</h2>
-      <div class="faq-grid">
-        <div class="faq-card">
-          <h3>How do I find dogs to walk near me?</h3>
-          <p>Sign up at shareskippy.com, then browse the community to see dogs in your area. When you find a pup you'd love to spend time with, send a connection request to the owner. They'll review your profile and respond.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Do I get paid to walk dogs?</h3>
-          <p>No — ShareSkippy is a volunteer community platform. The "payment" is quality time with a dog, the mental health benefits that come with it, and the satisfaction of genuinely helping a neighbor and their pup.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What's expected of me as a dog lover?</h3>
-          <p>Show up when you say you will, follow the owner's care instructions, keep the dog safe, and communicate openly. Most importantly: be kind. This community runs on trust.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What if I'm allergic but still want to participate?</h3>
-          <p>You can filter by breed or coat type when browsing. Some people with mild allergies do fine with certain breeds. Use your best judgment and talk to the dog owner about your situation.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Am I responsible if the dog gets hurt?</h3>
-          <p>You're expected to take reasonable care of the dog. Specific arrangements — including liability — are between you and the dog owner. We recommend agreeing on expectations before your first outing.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Can I borrow dogs regularly, or just once?</h3>
-          <p>Many ShareSkippy connections turn into ongoing weekly relationships — dog owners and dog lovers become genuine friends, and dogs get a reliable companion. It's completely up to you and the owner.</p>
+      <!-- For Dog Owners -->
+      <div class="faq-group">
+        <div class="faq-group-title">For Dog Owners</div>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How do I list my dog on ShareSkippy?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Sign up at shareskippy.com and create a profile for your dog — photo, name, breed, energy level, and what kind of help you're looking for (walks, playdates, etc.). It takes about 5 minutes.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Can I choose who spends time with my dog?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Absolutely. You approve every connection. No one interacts with your dog without your explicit OK. You can review profiles, read community reviews, and message someone before agreeing to anything.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What if something goes wrong during a walk?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Every interaction includes emergency contact information shared between both parties. Our community guidelines set clear expectations, and all members are subject to community reviews. For issues, reach us at <a href="mailto:team@sharevita.org">team@sharevita.org</a>.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is my home address shared with anyone?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>No. ShareSkippy uses approximate location — never your exact address. You coordinate meeting details privately with people you've already chosen to connect with.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What if my dog has special needs or medications?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>You can include all of that in your dog's profile — medications, behavioral notes, leash preferences, foods to avoid. You control what's shared and who sees it.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What does "sharing" my dog actually commit me to?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Nothing mandatory. You decide the frequency, duration, and who you connect with. Listing your dog just signals that you're open to help — no connection happens until you approve it.</p>
+            </div></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Safety -->
-  <section class="faq-section alt">
-    <div class="container">
-      <span class="section-label">Safety</span>
-      <h2 class="section-h">Safety &amp; Trust</h2>
-      <div class="faq-grid">
-        <div class="faq-card">
-          <h3>How does ShareSkippy verify members?</h3>
-          <p>All members create profiles that are visible to the community. Reviews and ratings build over time, creating a reputation system that helps everyone make informed decisions about who they connect with.</p>
-        </div>
-        <div class="faq-card">
-          <h3>Is my personal information safe?</h3>
-          <p>Yes. We don't share your exact location, personal contact details, or payment information (there's no payment to begin with). See our <a href="/privacy">Privacy Policy</a> for full details.</p>
-        </div>
-        <div class="faq-card">
-          <h3>What are the community guidelines?</h3>
-          <p>ShareSkippy's community guidelines set expectations for respectful, safe interactions. All members agree to these when signing up. You can review them at shareskippy.com after creating your account.</p>
+      <!-- For Dog Lovers -->
+      <div class="faq-group">
+        <div class="faq-group-title">For Dog Lovers</div>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How do I find dogs to walk near me?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Sign up at shareskippy.com, then browse the community to see dogs in your area. When you find a pup you'd love to spend time with, send a connection request to the owner. They'll review your profile and respond.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Do I get paid to walk dogs?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>No — ShareSkippy is a volunteer community platform. The reward is quality time with a dog, the mental health benefits that come with it, and genuinely helping a neighbor.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What's expected of me as a dog lover?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Show up when you say you will, follow the owner's care instructions, keep the dog safe, and communicate openly. Most importantly: be reliable. This community runs on trust.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Am I responsible if the dog gets hurt?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>You're expected to take reasonable care of the dog. Specific arrangements — including liability — are between you and the owner. We recommend discussing expectations clearly before your first outing.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Can I become a regular walker for a specific dog?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Yes, and many connections do become ongoing. Dog owners and dog lovers often form weekly routines — the dog gets a reliable companion, and you get a standing date you actually look forward to.</p>
+            </div></div>
+          </div>
         </div>
       </div>
+
+      <!-- Safety -->
+      <div class="faq-group">
+        <div class="faq-group-title">Safety</div>
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              How does ShareSkippy verify members?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>All members create public profiles. Reviews and ratings accumulate over time, building a reputation system that helps everyone make informed decisions before connecting with someone.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              Is my personal information kept private?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>Yes. We don't share your exact location or contact details publicly. See our <a href="/privacy">Privacy Policy</a> for full details.</p>
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">
+              What are the community guidelines?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-a" role="region"><div class="faq-a-inner">
+              <p>ShareSkippy's community guidelines set expectations for safe, respectful interactions. All members agree to these when they sign up. They're available to read on shareskippy.com after creating your account.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
 
   <!-- CTA -->
   <section class="cta-section">
     <div class="container">
-      <h2>Ready to join the pack?</h2>
+      <h2>Ready to get started?</h2>
       <p>Signup is free and takes two minutes. Dogs are waiting.</p>
-      <div class="cta-buttons">
-        <a href="https://shareskippy.com/signup" class="btn btn-outline-white"
-           target="_blank" rel="noopener noreferrer">Join Free on ShareSkippy</a>
-        <a href="/shareskippy/how-it-works"
-           class="btn btn-blue" style="background: white; color: var(--navy); border-color: white; box-shadow: none;">See How It Works</a>
+      <div class="cta-btns">
+        <a href="https://shareskippy.com/signup" class="btn btn-white"
+           target="_blank" rel="noopener noreferrer">Join ShareSkippy</a>
+        <a href="/shareskippy/how-it-works" class="btn btn-outline-white">See How It Works</a>
       </div>
     </div>
   </section>
@@ -567,11 +586,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo">🐾 ShareSkippy</div>
-        <p>Connecting dog lovers with dog owners for free, community-based dog sharing.
-           A project of <a href="https://sharevita.org" style="color: #a5b4fc;">ShareVita</a>, a community-driven nonprofit.</p>
+        <p>Connecting dog lovers with dog owners for free, community-based dog sharing. A project of <a href="https://sharevita.org" style="color:#a5b4fc;">ShareVita</a>.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Pages</h4>
         <ul>
           <li><a href="/shareskippy">ShareSkippy Home</a></li>
           <li><a href="/shareskippy/how-it-works">How It Works</a></li>
@@ -596,17 +614,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="footer-sv-inner">
         <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
         <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
-        <p>
-          <a href="/privacy">Privacy Policy</a>
-          &nbsp;·&nbsp;
-          <a href="/terms">Terms of Use</a>
-          &nbsp;·&nbsp;
-          <a href="/contact">Contact</a>
-        </p>
+        <p><a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></p>
         <p class="copy">© 2025 ShareVita. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
+  <script>
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+        btn.closest('.faq-accordion').querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
 </body>
 </html>
