@@ -17,22 +17,18 @@
     *, *::before, *::after { box-sizing: border-box; }
 
     :root {
-      --purple:       #4f3af5;
-      --purple-dark:  #3d28e0;
-      --blue:         #125dfc;
-      --mid:          #3255fc;
-      --light:        #f5f3ff;
-      --navy:         #1a0d6b;
-      --dark:         #08041e;
-      --grad:         linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
-      --text:         #111827;
-      --muted:        #6b7280;
-      --border:       #e5e7eb;
-      --border-p:     rgba(79, 58, 245, 0.15);
+      --purple:   #4f3af5;
+      --navy:     #1a0d6b;
+      --dark:     #08041e;
+      --grad:     linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:     #111827;
+      --muted:    #6b7280;
+      --light:    #f8f6f1;
+      --border:   #e5e7eb;
+      --border-p: rgba(79, 58, 245, 0.12);
     }
 
     html { scroll-behavior: smooth; }
-
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0; padding: 0;
@@ -41,7 +37,6 @@
       background: white;
       -webkit-font-smoothing: antialiased;
     }
-
     a { color: inherit; text-decoration: none; }
 
     .sv-bar {
@@ -60,30 +55,25 @@
       justify-content: space-between;
       padding: 1rem 2rem;
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 100;
     }
-
     .nav-logo {
-      font-size: 1.15rem;
-      font-weight: 800;
+      font-size: 1.1rem;
+      font-weight: 900;
       background: var(--grad);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
     }
-
     .nav-links {
       display: flex;
       gap: 1.5rem;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--muted);
     }
     .nav-links a:hover { color: var(--text); }
@@ -91,398 +81,266 @@
 
     .btn {
       display: inline-block;
-      padding: 0.65rem 1.5rem;
+      padding: 0.65rem 1.4rem;
       border-radius: 0.5rem;
       font-weight: 700;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      border: 2px solid transparent;
-      transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s;
+      border: 1.5px solid transparent;
+      transition: box-shadow 0.18s, opacity 0.15s;
       text-decoration: none;
     }
-    .btn:hover { transform: translateY(-1px); }
-
-    .btn-blue {
+    .btn-primary {
       background: var(--grad);
       color: white;
-      border: none;
-      box-shadow: 0 4px 18px rgba(79, 58, 245, 0.4);
+      box-shadow: 0 3px 14px rgba(79,58,245,0.35);
     }
-    .btn-blue:hover { box-shadow: 0 7px 28px rgba(79, 58, 245, 0.55); opacity: 0.92; }
-
+    .btn-primary:hover { box-shadow: 0 5px 22px rgba(79,58,245,0.5); opacity: 0.92; }
     .btn-outline {
       background: white;
       color: var(--purple);
-      border-color: var(--purple);
+      border-color: rgba(79,58,245,0.4);
     }
-    .btn-outline:hover { background: var(--light); }
-
+    .btn-outline:hover { border-color: var(--purple); background: #faf9ff; }
     .btn-outline-white {
       background: transparent;
       color: white;
-      border-color: rgba(255,255,255,0.65);
+      border-color: rgba(255,255,255,0.6);
     }
-    .btn-outline-white:hover { background: rgba(255,255,255,0.12); border-color: white; }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
+    .btn-white { background: white; color: var(--navy); border-color: white; font-weight: 700; }
+    .btn-white:hover { opacity: 0.9; }
 
-    .container {
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+    section { padding: 5rem 1.5rem; }
+
+    /* ── Hero (2-column split) ── */
+    .hero-outer {
+      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 30%, #e6ecff 70%, #dce8ff 100%);
+      padding: 4.5rem 1.5rem;
+    }
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
       max-width: 1080px;
       margin: 0 auto;
-      padding: 0 1.5rem;
     }
-
-    section { padding: 4.5rem 1.5rem; }
-
-    .section-label {
-      display: block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--purple);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-h {
-      position: relative;
-      display: inline-block;
-      padding-bottom: 0.8rem;
-    }
-    .section-h::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 44px;
-      height: 3px;
-      background: var(--grad);
-      border-radius: 9999px;
-    }
-
-    /* ── Hero ── */
-    .hero-outer {
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 25%, #e6ecff 60%, #dce8ff 100%);
-    }
-
-    .hero {
-      padding: 4.5rem 1.5rem 3.5rem;
-      text-align: center;
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      background: rgba(79, 58, 245, 0.07);
-      border: 1px solid rgba(79, 58, 245, 0.22);
-      color: var(--purple);
-      font-size: 0.72rem;
-      font-weight: 700;
-      padding: 0.35rem 1rem;
-      border-radius: 2rem;
-      margin-bottom: 1.25rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .hero h1 {
-      font-size: clamp(2rem, 5.5vw, 3.4rem);
+    .hero-text h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
       font-weight: 900;
+      letter-spacing: -0.025em;
       line-height: 1.1;
-      margin: 0 0 1.1rem;
-      letter-spacing: -0.02em;
+      margin: 0 0 1rem;
       color: var(--text);
     }
-
-    .hero h1 .gradient-text {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .hero-text h1 em {
+      font-style: normal;
+      color: var(--purple);
     }
-
-    .hero p {
-      font-size: 1.05rem;
+    .hero-text p {
+      font-size: 1rem;
       color: var(--muted);
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
       line-height: 1.75;
+      margin: 0 0 1.75rem;
+      max-width: 420px;
+    }
+    .hero-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .hero-stats {
+      background: white;
+      border-radius: 1.25rem;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      box-shadow: 0 8px 40px rgba(79,58,245,0.1);
+    }
+    .stat-item { text-align: center; }
+    .stat-item:last-child {
+      grid-column: 1 / -1;
+      border-top: 1px solid var(--border);
+      padding-top: 2rem;
+    }
+    .stat-n {
+      display: block;
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.35rem;
+    }
+    .stat-l {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
-    .hero-stats {
+    /* ── Life Happens (feature list) ── */
+    .feature-section { background: white; }
+    .feature-section .container { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+    .feature-section-intro h2 {
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 900;
+      margin: 0 0 0.75rem;
+      line-height: 1.2;
+    }
+    .feature-section-intro p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.75;
+      margin: 0 0 1.5rem;
+    }
+    .feature-list { display: flex; flex-direction: column; gap: 2rem; }
+    .feature-item { display: flex; gap: 1.1rem; align-items: flex-start; }
+    .feature-icon {
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      background: #f0effe;
+      border-radius: 0.6rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.85rem;
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin: 0 auto 2rem;
+      color: var(--purple);
     }
-    .hero-stats strong {
-      background: var(--grad);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      font-weight: 800;
-    }
-    .hero-stat-sep { color: #d1d5db; }
-
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* ── Who It's For ── */
-    .for-section { background: var(--light); text-align: center; }
-
-    .for-section h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      margin: 0 0 2.5rem;
-    }
-
-    .for-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .for-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-top: 3px solid var(--purple);
-      border-radius: 1rem;
-      padding: 1.75rem;
-      text-align: left;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .for-card:hover {
-      box-shadow: 0 8px 32px rgba(79, 58, 245, 0.13);
-      transform: translateY(-3px);
-    }
-
-    .for-icon {
-      font-size: 1.75rem;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .for-card h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.4rem; }
-    .for-card p  { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.55; }
+    .feature-item h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.25rem; }
+    .feature-item p { font-size: 0.88rem; color: var(--muted); margin: 0; line-height: 1.65; }
 
     /* ── How It Works ── */
-    .how-section { background: white; text-align: center; }
-
+    .how-section { background: var(--light); text-align: center; }
     .how-section h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      margin: 0 0 2.5rem;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 900;
+      margin: 0 0 3rem;
     }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    .steps-list {
+      list-style: none;
+      padding: 0; margin: 0 auto;
+      max-width: 640px;
+      text-align: left;
+    }
+    .steps-list li {
+      display: flex;
       gap: 2rem;
-      margin-bottom: 2.5rem;
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
     }
-
-    @media (min-width: 701px) {
-      .how-grid { position: relative; }
-      .how-grid::before {
-        content: '';
-        position: absolute;
-        top: 36px;
-        left: calc(16.67% + 14px);
-        right: calc(16.67% + 14px);
-        height: 0;
-        border-top: 2px dashed #c4b5fd;
-        z-index: 0;
-      }
-      .how-card { z-index: 1; position: relative; }
+    .steps-list li:last-child { border-bottom: none; }
+    .step-n {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--purple);
+      opacity: 0.18;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      flex-shrink: 0;
+      min-width: 56px;
+      text-align: right;
     }
-
-    .how-card { text-align: center; }
-
-    .how-step-num {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--grad);
-      color: white;
-      font-size: 0.7rem;
-      font-weight: 800;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 0.5rem;
-      box-shadow: 0 3px 10px rgba(79, 58, 245, 0.4);
-    }
-
-    .how-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: white;
-      box-shadow: 0 4px 20px rgba(79, 58, 245, 0.12);
-      border: 1px solid var(--border-p);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.7rem;
-      margin: 0 auto 1rem;
-    }
-
-    .how-card h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 0.4rem; }
-    .how-card p  { font-size: 0.9rem; color: var(--muted); margin: 0; }
+    .step-body h3 { font-size: 1rem; font-weight: 700; margin: 0 0 0.3rem; }
+    .step-body p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.65; }
+    .how-cta { margin-top: 3rem; }
 
     /* ── Safety ── */
-    .safety-section { background: var(--light); text-align: center; }
-
+    .safety-section { background: white; }
     .safety-section h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 900;
+      margin: 0 0 0.5rem;
+    }
+    .safety-section .lead {
+      font-size: 0.95rem;
+      color: var(--muted);
       margin: 0 0 2.5rem;
     }
-
     .trust-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
-
     .trust-card {
-      background: white;
-      border: 1px solid var(--border-p);
-      border-radius: 1rem;
-      padding: 1.75rem;
-      text-align: left;
-      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1px solid var(--border);
+      border-radius: 0.875rem;
+      padding: 1.5rem;
+      transition: box-shadow 0.2s;
     }
-    .trust-card:hover {
-      box-shadow: 0 6px 24px rgba(79, 58, 245, 0.1);
-      transform: translateY(-2px);
-    }
-
-    .trust-icon {
-      width: 46px;
-      height: 46px;
-      border-radius: 0.65rem;
-      background: linear-gradient(135deg, #ede9fe, #dbeafe);
+    .trust-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+    .trust-card-icon {
+      width: 40px;
+      height: 40px;
+      background: #f0effe;
+      border-radius: 0.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3rem;
-      margin-bottom: 0.9rem;
+      color: var(--purple);
+      margin-bottom: 1rem;
     }
+    .trust-card h3 { font-size: 0.92rem; font-weight: 700; margin: 0 0 0.35rem; }
+    .trust-card p { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.6; }
 
-    .trust-card h3 { font-size: 0.95rem; font-weight: 700; margin: 0 0 0.35rem; }
-    .trust-card p  { font-size: 0.85rem; color: var(--muted); margin: 0; line-height: 1.55; }
-
-    /* ── Stories ── */
-    .stories-section { background: white; text-align: center; }
-
+    /* ── Testimonials (editorial) ── */
+    .stories-section { background: var(--light); }
     .stories-section h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      font-weight: 800;
-      margin: 0 0 2.5rem;
+      font-size: clamp(1.5rem, 3vw, 2.1rem);
+      font-weight: 900;
+      margin: 0 0 3rem;
     }
-
-    .stories-grid {
+    .testimonials-editorial {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.25rem;
-      text-align: left;
+      gap: 3rem 4rem;
     }
-
-    .story-card {
-      background: var(--light);
-      border: 1px solid var(--border-p);
-      border-radius: 1rem;
-      padding: 1.5rem;
-      position: relative;
-      overflow: hidden;
-      transition: box-shadow 0.2s, transform 0.2s;
+    .testimonial-eq {
+      margin: 0;
+      padding: 0 0 0 1.5rem;
+      border-left: 3px solid var(--border-p);
     }
-    .story-card:hover {
-      box-shadow: 0 6px 24px rgba(79, 58, 245, 0.12);
-      transform: translateY(-2px);
-    }
-    .story-card::before {
-      content: '\201C';
-      position: absolute;
-      top: -0.75rem; left: 0.9rem;
-      font-size: 5.5rem;
-      color: var(--purple);
-      opacity: 0.1;
-      font-family: Georgia, serif;
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
-
-    .story-card blockquote {
-      font-size: 0.9rem;
-      color: #374151;
-      margin: 0 0 0.9rem;
+    .testimonial-eq p {
+      font-size: 1.05rem;
       font-style: italic;
-      line-height: 1.65;
-      padding-top: 0.5rem;
+      color: #374151;
+      line-height: 1.75;
+      margin: 0 0 0.75rem;
     }
-
-    .story-author {
+    .testimonial-eq footer {
       font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--purple);
+      color: var(--muted);
+      font-style: normal;
     }
 
     /* ── CTA ── */
     .cta-section {
-      background: linear-gradient(150deg, #1a0d6b 0%, #0f0835 55%, #08041e 100%);
-      color: white;
+      background: linear-gradient(135deg, #ede9fe 0%, #dbeafe 100%);
       text-align: center;
       padding: 5.5rem 1.5rem;
-      position: relative;
-      overflow: hidden;
+      border-top: 1px solid var(--border-p);
     }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      top: -120px; left: 50%;
-      transform: translateX(-50%);
-      width: 600px; height: 300px;
-      background: radial-gradient(ellipse, rgba(79, 58, 245, 0.3) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
     .cta-section h2 {
       font-size: clamp(1.5rem, 3.5vw, 2.2rem);
       font-weight: 900;
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.65rem;
       line-height: 1.2;
-      position: relative;
+      color: var(--navy);
     }
-
     .cta-section p {
-      max-width: 480px;
+      max-width: 440px;
       margin: 0 auto 2rem;
-      opacity: 0.75;
+      color: var(--muted);
       font-size: 0.95rem;
-      position: relative;
     }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      position: relative;
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+    .btn-navy {
+      background: var(--navy);
+      color: white;
+      border-color: transparent;
     }
+    .btn-navy:hover { opacity: 0.9; }
 
     /* ── Footer ── */
     footer {
@@ -491,7 +349,6 @@
       padding: 3rem 1.5rem 2rem;
       font-size: 0.85rem;
     }
-
     .footer-inner {
       max-width: 1080px;
       margin: 0 auto 2rem;
@@ -499,89 +356,58 @@
       grid-template-columns: 2fr 1fr 1fr;
       gap: 2.5rem;
     }
-
-    .footer-brand .logo {
-      font-size: 1.1rem;
-      font-weight: 800;
-      color: white;
-      display: flex;
-      align-items: center;
-      gap: 0.35rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .footer-brand p {
-      font-size: 0.82rem;
-      line-height: 1.6;
-      max-width: 280px;
-    }
-
+    .footer-brand .logo { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 0.65rem; }
+    .footer-brand p { font-size: 0.82rem; line-height: 1.6; max-width: 260px; }
     .footer-col h4 {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: white;
-      margin: 0 0 0.75rem;
+      margin: 0 0 0.65rem;
     }
-
-    .footer-col ul {
-      list-style: none;
-      padding: 0; margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-    }
-
-    .footer-col ul a { color: #9ca3af; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col ul a { color: #9ca3af; font-size: 0.85rem; }
     .footer-col ul a:hover { color: white; }
-
     .footer-bottom {
       max-width: 1080px;
       margin: 0 auto;
       padding-top: 1.5rem;
-      border-top: 1px solid rgba(79, 58, 245, 0.2);
+      border-top: 1px solid rgba(255,255,255,0.07);
       font-size: 0.78rem;
       line-height: 1.7;
     }
-
-    .footer-sv {
-      border-top: 1px solid rgba(79, 58, 245, 0.25);
-      padding: 1.75rem 1.5rem;
-      margin-top: 1.5rem;
-    }
-    .footer-sv-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 0.78rem;
-      line-height: 1.9;
-    }
+    .footer-sv { border-top: 1px solid rgba(79,58,245,0.2); padding: 1.75rem 1.5rem; margin-top: 1.5rem; }
+    .footer-sv-inner { max-width: 1080px; margin: 0 auto; text-align: center; font-size: 0.78rem; line-height: 1.9; }
     .footer-sv-inner p { margin: 0.2rem 0; }
     .footer-sv-inner a { color: #a5b4fc; }
     .footer-sv-inner a:hover { color: white; }
     .footer-sv-inner .copy { color: #6b7280; margin-top: 0.5rem; }
 
+    @media (max-width: 900px) {
+      .hero-split { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); }
+      .hero-stats .stat-item:last-child { grid-column: auto; border-top: none; padding-top: 0; }
+      .feature-section .container { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
     @media (max-width: 700px) {
       .nav-links { display: none; }
-      .hero-ctas, .cta-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 280px; text-align: center; }
+      .hero-ctas, .cta-btns { flex-direction: column; align-items: flex-start; }
+      .btn { text-align: center; }
       .footer-inner { grid-template-columns: 1fr; }
-      .for-grid, .how-grid, .trust-grid { grid-template-columns: 1fr; }
-      .how-grid::before { display: none; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
     }
   </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6NR8DDP"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
   <div class="sv-bar">
     A project by <a href="https://sharevita.org">ShareVita</a>
     &nbsp;·&nbsp;
-    <a href="https://sharevita.org/shareskippy">← Back to ShareSkippy</a>
+    <a href="/shareskippy">← Back to ShareSkippy</a>
   </div>
 
   <nav>
@@ -592,133 +418,179 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/shareskippy/borrow-a-dog">Borrow a Dog</a>
       <a href="/shareskippy/faq">FAQ</a>
     </div>
-    <a href="https://shareskippy.com/signup" class="btn btn-blue"
-       target="_blank" rel="noopener noreferrer" style="padding: 0.5rem 1.1rem; font-size: 0.88rem;">Join Free</a>
+    <a href="https://shareskippy.com/signup" class="btn btn-primary"
+       target="_blank" rel="noopener noreferrer" style="padding:0.45rem 1rem;font-size:0.85rem;">Join Free</a>
   </nav>
 
-  <!-- Hero -->
+  <!-- Hero: 2-column split -->
   <div class="hero-outer">
-    <div class="hero">
-      <div class="hero-badge">🏠 For Dog Owners &nbsp;·&nbsp; 100% Free</div>
-      <h1>Your Dog Deserves More.<br><span class="gradient-text">Your Neighbors Can Help.</span></h1>
-      <p>
-        Life gets busy — long hours, health setbacks, caregiving responsibilities. ShareSkippy connects
-        dog owners with trusted, volunteer dog lovers in the neighborhood who genuinely want to spend
-        time with your pup. No fees. No strangers. Just community.
-      </p>
-      <div class="hero-stats">
-        <div><strong>2,000+</strong> Dogs Helped</div>
-        <span class="hero-stat-sep">·</span>
-        <div><strong>50+</strong> Cities</div>
-        <span class="hero-stat-sep">·</span>
-        <div><strong>100%</strong> Free</div>
+    <div class="hero-split">
+      <div class="hero-text">
+        <h1>Your Dog Needs<br>More Walks.<br><em>Your Neighbors</em><br>Can Help.</h1>
+        <p>ShareSkippy connects dog owners with trusted neighbors who genuinely want to spend time with your pup — for free, on your terms, in your neighborhood.</p>
+        <div class="hero-ctas">
+          <a href="https://shareskippy.com/signup" class="btn btn-primary"
+             target="_blank" rel="noopener noreferrer">Get Help for My Dog</a>
+          <a href="/shareskippy/how-it-works" class="btn btn-outline">How It Works</a>
+        </div>
       </div>
-      <div class="hero-ctas">
-        <a href="https://shareskippy.com/signup" class="btn btn-blue"
-           target="_blank" rel="noopener noreferrer">Get Help for My Dog</a>
-        <a href="/shareskippy/how-it-works" class="btn btn-outline">How It Works</a>
+      <div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-n">2,000+</span>
+            <span class="stat-l">Dogs helped</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-n">50+</span>
+            <span class="stat-l">Cities</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-n">$0</span>
+            <span class="stat-l">Cost to join</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Who It's For -->
-  <section class="for-section">
+  <!-- Life happens -->
+  <section class="feature-section">
     <div class="container">
-      <span class="section-label">Who We Help</span>
-      <h2 class="section-h">Life Happens. Your Dog Still Needs Walks.</h2>
-      <div class="for-grid">
-        <div class="for-card">
-          <span class="for-icon" aria-hidden="true">💼</span>
-          <h3>Busy Schedules</h3>
-          <p>Long commutes, demanding jobs, early mornings, and late nights — ShareSkippy connects your pup with a neighbor who has the time and the love to help.</p>
+      <div class="feature-section-intro">
+        <h2>Life gets busy.<br>Your dog still needs walks.</h2>
+        <p>ShareSkippy exists for the moments when you need a hand — whether that's every day or just once in a while. No judgment, no fees, just neighbors helping neighbors.</p>
+        <a href="https://shareskippy.com/signup" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Post My Dog Free</a>
+      </div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <rect x="1" y="3" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M5 3V1M13 3V1M1 7h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Busy schedules</h3>
+            <p>Long commutes, demanding jobs, early mornings — ShareSkippy connects your pup with a neighbor who has the time and genuinely enjoys it.</p>
+          </div>
         </div>
-        <div class="for-card">
-          <span class="for-icon" aria-hidden="true">🌿</span>
-          <h3>Health &amp; Recovery</h3>
-          <p>Surgery, illness, mobility challenges, or aging — when you can't keep up with an energetic dog, your neighbors step up. Many form lifelong friendships.</p>
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 1a8 8 0 100 16A8 8 0 009 1zM9 5v4l3 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Health &amp; recovery</h3>
+            <p>Surgery, illness, aging, or mobility challenges — when keeping up with an energetic dog isn't possible, your community steps in.</p>
+          </div>
         </div>
-        <div class="for-card">
-          <span class="for-icon" aria-hidden="true">👨‍👩‍👧</span>
-          <h3>Single Parents &amp; Caregivers</h3>
-          <p>Juggling kids, work, and a dog is a lot. ShareSkippy helps overwhelmed caregivers get reliable, free help — without the guilt of not doing it all.</p>
+        <div class="feature-item">
+          <div class="feature-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <circle cx="9" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M3 16c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M12 10l2 2-2 2" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Single parents &amp; caregivers</h3>
+            <p>Juggling kids, work, and a dog is a lot. ShareSkippy gives overwhelmed caregivers reliable, free support — without the guilt of not doing it all.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- How It Works for Owners -->
+  <!-- How it works -->
   <section class="how-section">
     <div class="container">
-      <span class="section-label" style="text-align:center; display:block;">Simple Process</span>
-      <h2 class="section-h">How It Works for Dog Owners</h2>
-      <div class="how-grid">
-        <div class="how-card">
-          <div class="how-step-num">1</div>
-          <div class="how-icon" aria-hidden="true">🐕</div>
-          <h3>Create Your Dog's Profile</h3>
-          <p>Sign up free and add your dog — photo, breed, energy level, and what kind of help you need</p>
-        </div>
-        <div class="how-card">
-          <div class="how-step-num">2</div>
-          <div class="how-icon" aria-hidden="true">✅</div>
-          <h3>Approve Who You Trust</h3>
-          <p>Review profiles and community reviews. You choose exactly who can spend time with your dog</p>
-        </div>
-        <div class="how-card">
-          <div class="how-step-num">3</div>
-          <div class="how-icon" aria-hidden="true">🐾</div>
-          <h3>Enjoy Peace of Mind</h3>
-          <p>Your dog gets the exercise and attention they need. You get breathing room — no guilt, no cost</p>
-        </div>
+      <h2>How it works for dog owners</h2>
+      <ol class="steps-list">
+        <li>
+          <span class="step-n">01</span>
+          <div class="step-body">
+            <h3>Create your dog's profile</h3>
+            <p>Sign up free and add your dog — photo, breed, energy level, and what kind of help you need. Takes about 5 minutes.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-n">02</span>
+          <div class="step-body">
+            <h3>Review and approve connections</h3>
+            <p>Dog lovers in your area will send connection requests. Read their profiles, check community reviews, and approve only the people you're comfortable with.</p>
+          </div>
+        </li>
+        <li>
+          <span class="step-n">03</span>
+          <div class="step-body">
+            <h3>Coordinate on your terms</h3>
+            <p>Message directly, set the schedule, share care instructions. You stay fully in control of when, how often, and for how long.</p>
+          </div>
+        </li>
+      </ol>
+      <div class="how-cta">
+        <a href="https://shareskippy.com/signup" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Post My Dog — It's Free</a>
       </div>
-      <a href="https://shareskippy.com/signup" class="btn btn-blue"
-         target="_blank" rel="noopener noreferrer">Post My Dog — It's Free</a>
     </div>
   </section>
 
   <!-- Safety -->
   <section class="safety-section">
     <div class="container">
-      <span class="section-label" style="text-align:center; display:block;">You're in Control</span>
-      <h2 class="section-h">Built for Owner Peace of Mind</h2>
+      <h2>Built for owner peace of mind</h2>
+      <p class="lead">You approve every person. Your address stays private. There's always a way to reach someone.</p>
       <div class="trust-grid">
         <div class="trust-card">
-          <div class="trust-icon" aria-hidden="true">✅</div>
-          <h3>You Approve Every Connection</h3>
-          <p>No one interacts with your dog without your explicit approval. You review profiles, read reviews from other owners, and decide who you trust.</p>
+          <div class="trust-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M15 4L7 12l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>You approve every connection</h3>
+          <p>No one interacts with your dog without your explicit OK. Review profiles and community reviews before saying yes.</p>
         </div>
         <div class="trust-card">
-          <div class="trust-icon" aria-hidden="true">📍</div>
-          <h3>Your Address Stays Private</h3>
-          <p>ShareSkippy never shares your exact home address. Only approximate neighborhood info is shown publicly — you share personal details only with people you've approved.</p>
+          <div class="trust-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M9 1L2 4v5c0 4.4 3 7.6 7 8.5C13 16.6 16 13.4 16 9V4L9 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Your address stays private</h3>
+          <p>Only approximate neighborhood info is shown publicly. You share your actual location only with people you've already approved.</p>
         </div>
         <div class="trust-card">
-          <div class="trust-icon" aria-hidden="true">📞</div>
-          <h3>Emergency Contacts Always Ready</h3>
-          <p>Every walk includes emergency contact information shared between parties. If anything comes up, there's always a line of communication.</p>
+          <div class="trust-card-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+              <path d="M16.5 13.5l-2-2a1.4 1.4 0 00-2 0l-.9.9a10 10 0 01-4-4l.9-.9a1.4 1.4 0 000-2L6.5 3.5a1.4 1.4 0 00-2 0L3 5c-.5.5-.6 1.2-.4 1.8C3.5 10.5 7.5 14.5 11.2 15.4c.6.2 1.3 0 1.8-.5l1.5-1.5a1.4 1.4 0 000-2z" stroke="currentColor" stroke-width="1.5"/>
+            </svg>
+          </div>
+          <h3>Emergency contacts, always</h3>
+          <p>Every connection includes emergency contact info shared between both parties, so there's always a line of communication.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Owner Stories -->
+  <!-- Testimonials -->
   <section class="stories-section">
     <div class="container">
-      <span class="section-label" style="text-align:center; display:block;">Real Owners, Real Stories</span>
-      <h2 class="section-h">What Dog Owners Are Saying</h2>
-      <div class="stories-grid">
-        <div class="story-card">
-          <blockquote>"My dog has boundless energy, and I couldn't keep up. Now he gets playdates with other pups, and I get peace of mind knowing he's happy and socialized."</blockquote>
-          <div class="story-author">— Lisa, Dog Owner</div>
-        </div>
-        <div class="story-card">
-          <blockquote>"Recovering from surgery, my neighbors made sure Bella still got her daily walks. I didn't have to ask twice — the community just showed up."</blockquote>
-          <div class="story-author">— David, Recovering Owner</div>
-        </div>
-        <div class="story-card">
-          <blockquote>"Single mom here — I was overwhelmed trying to juggle work, school, and my two kids. Now my pup gets outside while I prep dinner."</blockquote>
-          <div class="story-author">— Maria, Single Parent</div>
-        </div>
+      <h2>What dog owners are saying</h2>
+      <div class="testimonials-editorial">
+        <blockquote class="testimonial-eq">
+          <p>"My dog has boundless energy, and I couldn't keep up. Now he gets playdates with other pups — I get peace of mind knowing he's happy and socialized."</p>
+          <footer>Lisa K. — Dog Owner, Portland OR</footer>
+        </blockquote>
+        <blockquote class="testimonial-eq">
+          <p>"Recovering from surgery, my neighbors made sure Bella still got her daily walks. I didn't have to ask twice — the community just showed up."</p>
+          <footer>David M. — Dog Owner, Oakland CA</footer>
+        </blockquote>
+        <blockquote class="testimonial-eq">
+          <p>"Single mom here. I was overwhelmed juggling work, school drop-offs, and a dog. Now my pup gets outside while I prep dinner. It genuinely changed our routine."</p>
+          <footer>Maria R. — Dog Owner, Chicago IL</footer>
+        </blockquote>
       </div>
     </div>
   </section>
@@ -727,12 +599,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="cta-section">
     <div class="container">
       <h2>Your dog deserves daily walks.<br>Your neighbors want to help.</h2>
-      <p>Post your dog for free — no fees, no subscriptions, no strangers. Just community.</p>
-      <div class="cta-buttons">
-        <a href="https://shareskippy.com/signup" class="btn btn-outline-white"
-           target="_blank" rel="noopener noreferrer">Post My Dog — It's Free</a>
-        <a href="/shareskippy/faq"
-           class="btn btn-blue" style="background: white; color: var(--navy); border-color: white; box-shadow: none;">Read the FAQ</a>
+      <p>Post your dog for free — no fees, no subscriptions. Just community.</p>
+      <div class="cta-btns">
+        <a href="https://shareskippy.com/signup" class="btn btn-navy"
+           target="_blank" rel="noopener noreferrer">Post My Dog Free</a>
+        <a href="/shareskippy/faq" class="btn btn-outline">Read the FAQ</a>
       </div>
     </div>
   </section>
@@ -741,11 +612,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="logo">🐾 ShareSkippy</div>
-        <p>Connecting dog lovers with dog owners for free, community-based dog sharing.
-           A project of <a href="https://sharevita.org" style="color: #a5b4fc;">ShareVita</a>, a community-driven nonprofit.</p>
+        <p>Connecting dog lovers with dog owners for free, community-based dog sharing. A project of <a href="https://sharevita.org" style="color:#a5b4fc;">ShareVita</a>.</p>
       </div>
       <div class="footer-col">
-        <h4>Quick Links</h4>
+        <h4>Pages</h4>
         <ul>
           <li><a href="/shareskippy">ShareSkippy Home</a></li>
           <li><a href="/shareskippy/how-it-works">How It Works</a></li>
@@ -770,13 +640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="footer-sv-inner">
         <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
         <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
-        <p>
-          <a href="/privacy">Privacy Policy</a>
-          &nbsp;·&nbsp;
-          <a href="/terms">Terms of Use</a>
-          &nbsp;·&nbsp;
-          <a href="/contact">Contact</a>
-        </p>
+        <p><a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></p>
         <p class="copy">© 2025 ShareVita. All rights reserved.</p>
       </div>
     </div>
