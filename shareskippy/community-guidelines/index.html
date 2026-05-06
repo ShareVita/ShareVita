@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M6NR8DDP');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Community Guidelines — ShareSkippy Free Dog Sharing</title>
+  <meta name="description" content="ShareSkippy community guidelines: safety first, dog etiquette, communication, and building trust. A safe and welcoming community for all dog lovers." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:   #4f3af5;
+      --navy:     #1a0d6b;
+      --dark:     #08041e;
+      --grad:     linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:     #111827;
+      --muted:    #6b7280;
+      --light:    #f8f6f1;
+      --border:   #e5e7eb;
+      --border-p: rgba(79, 58, 245, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0; padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .sv-bar {
+      background: var(--grad);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 0.45rem 1.5rem;
+      font-size: 0.82rem;
+    }
+    .sv-bar a { color: rgba(255,255,255,0.8); text-decoration: underline; }
+    .sv-bar a:hover { color: white; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--purple); font-weight: 600; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: box-shadow 0.18s, opacity 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--grad);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 3px 14px rgba(79,58,245,0.35);
+    }
+    .btn-primary:hover { box-shadow: 0 5px 22px rgba(79,58,245,0.5); opacity: 0.92; }
+    .btn-outline {
+      background: white;
+      color: var(--purple);
+      border-color: rgba(79,58,245,0.4);
+    }
+    .btn-outline:hover { border-color: var(--purple); background: #faf9ff; }
+    .btn-white {
+      background: white;
+      color: var(--navy);
+      border-color: white;
+      font-weight: 700;
+    }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border-color: rgba(255,255,255,0.6);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 30%, #e6ecff 70%, #dce8ff 100%);
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    .page-hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Main content */
+    .gl-outer { padding: 4rem 1.5rem 5rem; }
+    .gl-inner { max-width: 1080px; margin: 0 auto; }
+
+    /* 2x2 card grid */
+    .gl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+    .gl-card {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.75rem;
+      background: #fafafa;
+    }
+    .gl-card-title {
+      font-size: 1rem;
+      font-weight: 800;
+      margin: 0 0 1rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .gl-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .gl-card ul li {
+      font-size: 0.875rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+      line-height: 1.6;
+    }
+    .gl-card ul li::before {
+      content: '•';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* Emergency box */
+    .emergency-box {
+      background: linear-gradient(135deg, #fef2f2, #fff7ed);
+      border: 1px solid #fecaca;
+      border-radius: 0.85rem;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .emergency-box h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      margin: 0 0 0.6rem;
+      color: #991b1b;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .emergency-box p {
+      font-size: 0.9rem;
+      color: #7f1d1d;
+      margin: 0 0 1.25rem;
+      line-height: 1.7;
+    }
+    .emergency-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+    .btn-danger {
+      background: #dc2626;
+      color: white;
+      border-color: transparent;
+      padding: 0.55rem 1.25rem;
+      font-size: 0.85rem;
+    }
+    .btn-danger:hover { opacity: 0.88; }
+    .btn-outline-purple {
+      background: white;
+      color: var(--purple);
+      border-color: rgba(79,58,245,0.4);
+      padding: 0.55rem 1.25rem;
+      font-size: 0.85rem;
+    }
+    .btn-outline-purple:hover { border-color: var(--purple); background: #faf9ff; }
+
+    /* About section */
+    .about-box {
+      background: linear-gradient(135deg, #f5f3ff, #eef2ff);
+      border: 1px solid var(--border-p);
+      border-radius: 0.85rem;
+      padding: 1.75rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .about-box h2 { font-size: 1.05rem; font-weight: 800; margin: 0 0 0.5rem; }
+    .about-box p { font-size: 0.9rem; color: var(--muted); margin: 0; line-height: 1.75; }
+    .about-box a { color: var(--purple); text-decoration: underline; }
+
+    /* Additional resources */
+    .resources-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .resources-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .resources-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .resource-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      background: white;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.15s;
+    }
+    .resource-card:hover { border-color: var(--purple); }
+    .resource-icon {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.5rem;
+      background: var(--grad);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .resource-card h3 { font-size: 0.9rem; font-weight: 700; margin: 0 0 0.2rem; }
+    .resource-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+
+    .cta-section {
+      background: var(--grad);
+      color: white;
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      margin: 0 0 0.65rem;
+      line-height: 1.2;
+    }
+    .cta-section p { max-width: 440px; margin: 0 auto 2rem; opacity: 0.85; font-size: 0.95rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand .logo { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 0.65rem; }
+    .footer-brand p { font-size: 0.82rem; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: white; margin: 0 0 0.65rem;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col ul a { color: #9ca3af; font-size: 0.85rem; }
+    .footer-col ul a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1080px; margin: 0 auto; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07); font-size: 0.78rem; line-height: 1.7;
+    }
+    .footer-sv { border-top: 1px solid rgba(79,58,245,0.2); padding: 1.75rem 1.5rem; margin-top: 1.5rem; }
+    .footer-sv-inner {
+      max-width: 1080px; margin: 0 auto; text-align: center;
+      font-size: 0.78rem; line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero-ctas, .cta-btns { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; text-align: center; }
+      .gl-grid, .resources-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6NR8DDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="sv-bar">
+    A project by <a href="https://sharevita.org">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="/shareskippy">← Back to ShareSkippy</a>
+  </div>
+
+  <nav>
+    <a href="/shareskippy" class="nav-logo">🐾 ShareSkippy</a>
+    <div class="nav-links">
+      <a href="/shareskippy/how-it-works">How It Works</a>
+      <a href="/shareskippy/dog-owners">For Dog Owners</a>
+      <a href="/shareskippy/borrow-a-dog">Borrow a Dog</a>
+      <a href="/shareskippy/faq">FAQ</a>
+    </div>
+    <a href="https://shareskippy.com/signup" class="btn btn-primary"
+       target="_blank" rel="noopener noreferrer" style="padding:0.45rem 1rem;font-size:0.85rem;">Join Free</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Community Guidelines</h1>
+      <p>Building a safe and welcoming community for all dog lovers.</p>
+      <div class="hero-ctas">
+        <a href="https://shareskippy.com/signup" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="/shareskippy/safety" class="btn btn-outline">Safety Guide</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="gl-outer">
+    <div class="gl-inner">
+
+      <div class="gl-grid">
+        <div class="gl-card">
+          <div class="gl-card-title">🛡️ Safety First</div>
+          <ul>
+            <li>Always meet in public places first</li>
+            <li>Bring your dog's vaccination records</li>
+            <li>Use a secure leash and collar</li>
+            <li>Supervise all interactions</li>
+            <li>Trust your instincts</li>
+          </ul>
+        </div>
+
+        <div class="gl-card">
+          <div class="gl-card-title">🐕 Dog Etiquette</div>
+          <ul>
+            <li>Keep dogs on leash unless in designated areas</li>
+            <li>Clean up after your dog</li>
+            <li>Respect other dogs' space</li>
+            <li>Monitor your dog's behavior</li>
+            <li>Be mindful of noise levels</li>
+          </ul>
+        </div>
+
+        <div class="gl-card">
+          <div class="gl-card-title">💬 Communication</div>
+          <ul>
+            <li>Be clear about expectations</li>
+            <li>Respond to messages promptly</li>
+            <li>Be honest about your experience</li>
+            <li>Respect others' time</li>
+            <li>Report any concerns</li>
+          </ul>
+        </div>
+
+        <div class="gl-card">
+          <div class="gl-card-title">🤝 Building Trust</div>
+          <ul>
+            <li>Start with short meetups</li>
+            <li>Build relationships gradually</li>
+            <li>Share positive experiences</li>
+            <li>Give and receive feedback</li>
+            <li>Support new members</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="emergency-box">
+        <h2>🚨 Emergency Contacts</h2>
+        <p>In case of emergency, contact local authorities immediately. For non-emergency concerns, use our support system to report issues.</p>
+        <div class="emergency-btns">
+          <a href="mailto:team@sharevita.org" class="btn btn-danger">Report Issue</a>
+          <a href="/shareskippy/safety" class="btn btn-outline-purple">Safety Guide</a>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <h2>🐾 About ShareSkippy</h2>
+        <p>ShareSkippy is a community program of <a href="https://sharevita.org">ShareVita</a>, a 501(c)(3) nonprofit organization. Our mission is to build community through sharing — and we believe dogs are one of the best ways to do that.</p>
+      </div>
+
+      <div class="resources-label">Additional Resources</div>
+      <div class="resources-grid">
+        <a href="/shareskippy/safety" class="resource-card">
+          <div class="resource-icon">🛡️</div>
+          <div>
+            <h3>Safety Guide</h3>
+            <p>Comprehensive safety tips</p>
+          </div>
+        </a>
+        <a href="/shareskippy/faq" class="resource-card">
+          <div class="resource-icon">❓</div>
+          <div>
+            <h3>FAQ</h3>
+            <p>Frequently asked questions</p>
+          </div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to join the community?</h2>
+      <p>Signup is free and takes two minutes. Dogs are waiting.</p>
+      <div class="cta-btns">
+        <a href="https://shareskippy.com/signup" class="btn btn-white"
+           target="_blank" rel="noopener noreferrer">Join ShareSkippy</a>
+        <a href="/shareskippy/safety" class="btn btn-outline-white">Safety Guide</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">🐾 ShareSkippy</div>
+        <p>Connecting dog lovers with dog owners for free, community-based dog sharing. A project of <a href="https://sharevita.org" style="color:#a5b4fc;">ShareVita</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/shareskippy">ShareSkippy Home</a></li>
+          <li><a href="/shareskippy/how-it-works">How It Works</a></li>
+          <li><a href="/shareskippy/dog-owners">For Dog Owners</a></li>
+          <li><a href="/shareskippy/borrow-a-dog">Borrow a Dog</a></li>
+          <li><a href="/shareskippy/safety">Safety</a></li>
+          <li><a href="/shareskippy/community-guidelines">Community Guidelines</a></li>
+          <li><a href="/shareskippy/our-story">Our Story</a></li>
+          <li><a href="/shareskippy/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ShareSkippy. All rights reserved.</p>
+      <p>ShareSkippy is a free community platform. Users are responsible for their own safety and arrangements.</p>
+    </div>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p><a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

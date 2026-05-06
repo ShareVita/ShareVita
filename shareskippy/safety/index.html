@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M6NR8DDP');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Safety Guidelines — ShareSkippy Free Dog Sharing</title>
+  <meta name="description" content="ShareSkippy safety guidelines: first meeting safety, dog safety, communication tips, red flags to watch for, and emergency procedures for safe dog sharing." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:   #4f3af5;
+      --navy:     #1a0d6b;
+      --dark:     #08041e;
+      --grad:     linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:     #111827;
+      --muted:    #6b7280;
+      --light:    #f8f6f1;
+      --border:   #e5e7eb;
+      --border-p: rgba(79, 58, 245, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0; padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .sv-bar {
+      background: var(--grad);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 0.45rem 1.5rem;
+      font-size: 0.82rem;
+    }
+    .sv-bar a { color: rgba(255,255,255,0.8); text-decoration: underline; }
+    .sv-bar a:hover { color: white; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 0.88rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--purple); font-weight: 600; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: box-shadow 0.18s, opacity 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--grad);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 3px 14px rgba(79,58,245,0.35);
+    }
+    .btn-primary:hover { box-shadow: 0 5px 22px rgba(79,58,245,0.5); opacity: 0.92; }
+    .btn-outline {
+      background: white;
+      color: var(--purple);
+      border-color: rgba(79,58,245,0.4);
+    }
+    .btn-outline:hover { border-color: var(--purple); background: #faf9ff; }
+    .btn-white { background: white; color: var(--navy); border-color: white; font-weight: 700; }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-outline-white {
+      background: transparent; color: white;
+      border-color: rgba(255,255,255,0.6);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 30%, #e6ecff 70%, #dce8ff 100%);
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    .page-hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Content */
+    .sf-outer { padding: 4rem 1.5rem 5rem; }
+    .sf-inner { max-width: 800px; margin: 0 auto; }
+
+    .sf-section { margin-bottom: 3rem; }
+
+    .sf-section-head {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.65rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .sf-section-head h2 {
+      font-size: 1.2rem;
+      font-weight: 800;
+      margin: 0;
+      color: var(--text);
+    }
+
+    .sf-callout {
+      background: #fef3c7;
+      border-left: 3px solid #f59e0b;
+      border-radius: 0 0.5rem 0.5rem 0;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #78350f;
+    }
+    .sf-callout.red {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+
+    .sf-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .sf-list li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      display: flex;
+      gap: 0.65rem;
+      align-items: flex-start;
+      line-height: 1.65;
+    }
+    .sf-list li::before {
+      content: '•';
+      color: var(--purple);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .sf-list.red li::before { color: #dc2626; content: '⚠'; font-size: 0.8rem; margin-top: 0.1rem; }
+
+    .sf-sublabel {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--purple);
+      margin: 1.25rem 0 0.5rem;
+    }
+    .sf-sublabel.red { color: #dc2626; }
+
+    /* Emergency contacts */
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .emergency-card {
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      background: #fafafa;
+    }
+    .emergency-card h3 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      color: var(--text);
+    }
+    .emergency-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .emergency-card ul li {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem 1.75rem;
+      margin-top: 2rem;
+    }
+    .disclaimer h3 { font-size: 0.875rem; font-weight: 700; margin: 0 0 0.5rem; }
+    .disclaimer p { font-size: 0.82rem; color: var(--muted); margin: 0; line-height: 1.75; }
+
+    .cta-section {
+      background: var(--grad);
+      color: white;
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      margin: 0 0 0.65rem;
+      line-height: 1.2;
+    }
+    .cta-section p { max-width: 440px; margin: 0 auto 2rem; opacity: 0.85; font-size: 0.95rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand .logo { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 0.65rem; }
+    .footer-brand p { font-size: 0.82rem; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: white; margin: 0 0 0.65rem;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col ul a { color: #9ca3af; font-size: 0.85rem; }
+    .footer-col ul a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1080px; margin: 0 auto; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07); font-size: 0.78rem; line-height: 1.7;
+    }
+    .footer-sv { border-top: 1px solid rgba(79,58,245,0.2); padding: 1.75rem 1.5rem; margin-top: 1.5rem; }
+    .footer-sv-inner {
+      max-width: 1080px; margin: 0 auto; text-align: center;
+      font-size: 0.78rem; line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero-ctas, .cta-btns { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; text-align: center; }
+      .emergency-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6NR8DDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="sv-bar">
+    A project by <a href="https://sharevita.org">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="/shareskippy">← Back to ShareSkippy</a>
+  </div>
+
+  <nav>
+    <a href="/shareskippy" class="nav-logo">🐾 ShareSkippy</a>
+    <div class="nav-links">
+      <a href="/shareskippy/how-it-works">How It Works</a>
+      <a href="/shareskippy/dog-owners">For Dog Owners</a>
+      <a href="/shareskippy/borrow-a-dog">Borrow a Dog</a>
+      <a href="/shareskippy/faq">FAQ</a>
+    </div>
+    <a href="https://shareskippy.com/signup" class="btn btn-primary"
+       target="_blank" rel="noopener noreferrer" style="padding:0.45rem 1rem;font-size:0.85rem;">Join Free</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Safety Guidelines</h1>
+      <p>Your safety is our priority. Please follow these guidelines to ensure safe and positive experiences.</p>
+      <div class="hero-ctas">
+        <a href="https://shareskippy.com/signup" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Join Free</a>
+        <a href="/shareskippy/community-guidelines" class="btn btn-outline">Community Guidelines</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sf-outer">
+    <div class="sf-inner">
+
+      <!-- First Meeting Safety -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>🟡</span>
+          <h2>First Meeting Safety</h2>
+        </div>
+        <div class="sf-callout">Always meet in public first! Never go directly to someone's home or invite them to yours without meeting in public first.</div>
+        <ul class="sf-list">
+          <li>Choose public locations: coffee shops, parks, pet stores, or busy outdoor areas</li>
+          <li>Bring a friend or family member to your first meeting</li>
+          <li>Meet during daylight hours in well-populated areas</li>
+          <li>Trust your instincts — if something feels off, don't proceed</li>
+          <li>Set up a "check-in" system with a trusted friend before getting started</li>
+          <li>Have your phone charged and easily accessible</li>
+        </ul>
+      </div>
+
+      <!-- Dog Safety -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>🐕</span>
+          <h2>Dog Safety Guidelines</h2>
+        </div>
+        <div class="sf-callout">Dog owners: be honest about your dog's behavior! Include all relevant information in your dog's profile so borrowers know what to expect.</div>
+        <ul class="sf-list">
+          <li>Be honest about your dog's temperament — aggression, anxiety, or special needs</li>
+          <li>Ensure your dog is properly trained and responds to basic commands</li>
+          <li>Keep dogs on leash unless in designated off-leash areas</li>
+          <li>Bring necessary supplies: water, treats, waste bags, first aid kit</li>
+          <li>Know your dog's limits — don't push them beyond their comfort zone</li>
+          <li>Have emergency contact information readily available</li>
+          <li>Be aware of local leash laws and park regulations</li>
+        </ul>
+      </div>
+
+      <!-- Communication Safety -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>💬</span>
+          <h2>Communication Safety</h2>
+        </div>
+        <ul class="sf-list">
+          <li>Use the platform's messaging system — don't share personal contact info initially</li>
+          <li>Take your time getting to know someone before arranging dog interactions</li>
+          <li>Ask questions about experience, references, and expectations</li>
+          <li>Be clear about boundaries and what you're comfortable with</li>
+        </ul>
+        <div class="sf-sublabel red">Be cautious of users who:</div>
+        <ul class="sf-list">
+          <li>Ask for money or financial information</li>
+          <li>Pressure you to meet quickly</li>
+          <li>Have incomplete or suspicious profiles</li>
+          <li>Make you feel uncomfortable</li>
+        </ul>
+      </div>
+
+      <!-- Red Flags -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>🚩</span>
+          <h2>Red Flags to Watch For</h2>
+        </div>
+        <div class="sf-callout red">If you encounter any of these, stop communication and report the user immediately.</div>
+        <ul class="sf-list red">
+          <li>Aggressive or threatening behavior</li>
+          <li>Requests for money or financial information</li>
+          <li>Refusal to meet in public or during daylight</li>
+          <li>Impersonation or suspicious profiles</li>
+          <li>Inappropriate or sexual comments</li>
+          <li>Requests to do unsafe things with themselves or their dogs</li>
+          <li>Dogs that show signs of aggression or are not properly controlled</li>
+        </ul>
+      </div>
+
+      <!-- Emergency Procedures -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>🚨</span>
+          <h2>Emergency Procedures</h2>
+        </div>
+        <div class="sf-sublabel">In case of emergency:</div>
+        <ul class="sf-list">
+          <li>Call 911 immediately if you feel threatened or in danger</li>
+          <li>Contact local animal control if a dog is aggressive or out of control</li>
+          <li>Seek medical attention for any injuries to people or animals</li>
+          <li>Document everything — take photos/video, save messages, note details</li>
+          <li>Report the incident to ShareSkippy support at <a href="mailto:team@sharevita.org" style="color:var(--purple);text-decoration:underline;">team@sharevita.org</a></li>
+          <li>Contact your veterinarian if the dog is hurt</li>
+        </ul>
+      </div>
+
+      <!-- Best Practices -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>✅</span>
+          <h2>Best Practices for Success</h2>
+        </div>
+        <ul class="sf-list">
+          <li>Start with short interactions and gradually build trust</li>
+          <li>Be patient — good relationships take time to develop</li>
+          <li>Communicate clearly about expectations and boundaries</li>
+          <li>Be respectful of other people's time and schedules</li>
+          <li>Leave honest ratings and reviews to help the community</li>
+          <li>Be understanding — sometimes dogs and days can be unpredictable</li>
+        </ul>
+      </div>
+
+      <!-- Emergency Contacts -->
+      <div class="sf-section">
+        <div class="sf-section-head">
+          <span>📞</span>
+          <h2>Emergency Contacts</h2>
+        </div>
+        <div class="emergency-grid">
+          <div class="emergency-card">
+            <h3>Emergency Services</h3>
+            <ul>
+              <li>911 — Police &amp; Fire</li>
+              <li>Local Police (non-emergency)</li>
+              <li>Humane Society</li>
+              <li>Animal Control</li>
+            </ul>
+          </div>
+          <div class="emergency-card">
+            <h3>ShareSkippy Support</h3>
+            <ul>
+              <li><a href="mailto:team@sharevita.org" style="color:var(--purple);">team@sharevita.org</a></li>
+              <li><a href="/shareskippy/safety" style="color:var(--purple);">Safety Guidelines</a></li>
+              <li><a href="/shareskippy/community-guidelines" style="color:var(--purple);">Community Guidelines</a></li>
+              <li><a href="/shareskippy/faq" style="color:var(--purple);">Help &amp; FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="disclaimer">
+        <h3>Important Disclaimer</h3>
+        <p>ShareSkippy is a community platform that connects users. We do not verify the identity, background, or experience of our users, and we do not guarantee the behavior of any dog. Users are solely responsible for their own safety and the safety of their dogs. Always use caution and follow these safety guidelines.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to join safely?</h2>
+      <p>ShareSkippy is free and built on community trust. Join thousands of dog lovers today.</p>
+      <div class="cta-btns">
+        <a href="https://shareskippy.com/signup" class="btn btn-white"
+           target="_blank" rel="noopener noreferrer">Join ShareSkippy</a>
+        <a href="/shareskippy/community-guidelines" class="btn btn-outline-white">Community Guidelines</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">🐾 ShareSkippy</div>
+        <p>Connecting dog lovers with dog owners for free, community-based dog sharing. A project of <a href="https://sharevita.org" style="color:#a5b4fc;">ShareVita</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/shareskippy">ShareSkippy Home</a></li>
+          <li><a href="/shareskippy/how-it-works">How It Works</a></li>
+          <li><a href="/shareskippy/dog-owners">For Dog Owners</a></li>
+          <li><a href="/shareskippy/borrow-a-dog">Borrow a Dog</a></li>
+          <li><a href="/shareskippy/safety">Safety</a></li>
+          <li><a href="/shareskippy/community-guidelines">Community Guidelines</a></li>
+          <li><a href="/shareskippy/our-story">Our Story</a></li>
+          <li><a href="/shareskippy/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ShareSkippy. All rights reserved.</p>
+      <p>ShareSkippy is a free community platform. Users are responsible for their own safety and arrangements.</p>
+    </div>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p><a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M6NR8DDP');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Story — ShareSkippy & ShareVita</title>
+  <meta name="description" content="How a simple act of kindness became a community movement. The story of ShareSkippy, founded by Kaia Colban and ShareVita, a 501(c)(3) nonprofit." />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --purple:   #4f3af5;
+      --navy:     #1a0d6b;
+      --dark:     #08041e;
+      --grad:     linear-gradient(135deg, #4f3af5 0%, #3255fc 50%, #125dfc 100%);
+      --text:     #111827;
+      --muted:    #6b7280;
+      --light:    #f8f6f1;
+      --border:   #e5e7eb;
+      --border-p: rgba(79, 58, 245, 0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0; padding: 0;
+      color: var(--text);
+      line-height: 1.6;
+      background: white;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .sv-bar {
+      background: var(--grad);
+      color: rgba(255,255,255,0.92);
+      text-align: center;
+      padding: 0.45rem 1.5rem;
+      font-size: 0.82rem;
+    }
+    .sv-bar a { color: rgba(255,255,255,0.8); text-decoration: underline; }
+    .sv-bar a:hover { color: white; }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      font-size: 1.1rem;
+      font-weight: 900;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .nav-links { display: flex; gap: 1.5rem; font-size: 0.88rem; color: var(--muted); }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--purple); font-weight: 600; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 0.5rem;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      border: 1.5px solid transparent;
+      transition: box-shadow 0.18s, opacity 0.15s;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: var(--grad);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 3px 14px rgba(79,58,245,0.35);
+    }
+    .btn-primary:hover { box-shadow: 0 5px 22px rgba(79,58,245,0.5); opacity: 0.92; }
+    .btn-outline { background: white; color: var(--purple); border-color: rgba(79,58,245,0.4); }
+    .btn-outline:hover { border-color: var(--purple); background: #faf9ff; }
+    .btn-white { background: white; color: var(--navy); border-color: white; font-weight: 700; }
+    .btn-white:hover { opacity: 0.9; }
+    .btn-outline-white { background: transparent; color: white; border-color: rgba(255,255,255,0.6); }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); border-color: white; }
+
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; }
+
+    .page-hero {
+      background: linear-gradient(135deg, #e8e4ff 0%, #ede9fe 30%, #e6ecff 70%, #dce8ff 100%);
+      padding: 4rem 1.5rem 3.5rem;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      line-height: 1.1;
+      margin: 0 0 1rem;
+      color: var(--text);
+    }
+    .page-hero .subtitle {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 1.75rem;
+      line-height: 1.75;
+    }
+    .hero-ctas { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Story layout */
+    .story-outer { padding: 4rem 1.5rem 2rem; }
+    .story-inner { max-width: 720px; margin: 0 auto; }
+
+    .story-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+    .story-section:last-of-type { border-bottom: none; }
+
+    .story-section h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 0 0 1.1rem;
+      line-height: 1.25;
+      color: var(--text);
+    }
+    .story-section p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0 0 1rem;
+    }
+    .story-section p:last-child { margin-bottom: 0; }
+
+    .highlight-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .highlight-list li {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text);
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    /* What Makes ShareSkippy Different */
+    .diff-outer { background: linear-gradient(135deg, #f5f3ff 0%, #eef2ff 100%); padding: 4rem 1.5rem; }
+    .diff-inner { max-width: 1080px; margin: 0 auto; }
+    .diff-inner h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      text-align: center;
+      margin: 0 0 2.5rem;
+      color: var(--text);
+    }
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .diff-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+    }
+    .diff-card-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin: 0 0 0.4rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .diff-card p { font-size: 0.875rem; color: var(--muted); margin: 0; line-height: 1.65; }
+
+    /* About / Looking Forward */
+    .more-outer { padding: 4rem 1.5rem 5rem; }
+    .more-inner { max-width: 720px; margin: 0 auto; }
+    .more-section { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border); }
+    .more-section:last-of-type { border-bottom: none; margin-bottom: 0; }
+    .more-section h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin: 0 0 1.1rem;
+      color: var(--text);
+    }
+    .more-section p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0 0 1rem;
+    }
+    .more-section p:last-child { margin-bottom: 0; }
+    .more-section a.link { color: var(--purple); text-decoration: underline; }
+
+    .cta-section {
+      background: var(--grad);
+      color: white;
+      text-align: center;
+      padding: 5rem 1.5rem;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+      font-weight: 900;
+      margin: 0 0 0.65rem;
+      line-height: 1.2;
+    }
+    .cta-section p { max-width: 440px; margin: 0 auto 2rem; opacity: 0.85; font-size: 0.95rem; }
+    .cta-btns { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+
+    footer {
+      background: var(--dark);
+      color: #9ca3af;
+      padding: 3rem 1.5rem 2rem;
+      font-size: 0.85rem;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto 2rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+    .footer-brand .logo { font-size: 1rem; font-weight: 800; color: white; margin-bottom: 0.65rem; }
+    .footer-brand p { font-size: 0.82rem; line-height: 1.6; max-width: 260px; }
+    .footer-col h4 {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: white; margin: 0 0 0.65rem;
+    }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.4rem; }
+    .footer-col ul a { color: #9ca3af; font-size: 0.85rem; }
+    .footer-col ul a:hover { color: white; }
+    .footer-bottom {
+      max-width: 1080px; margin: 0 auto; padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07); font-size: 0.78rem; line-height: 1.7;
+    }
+    .footer-sv { border-top: 1px solid rgba(79,58,245,0.2); padding: 1.75rem 1.5rem; margin-top: 1.5rem; }
+    .footer-sv-inner {
+      max-width: 1080px; margin: 0 auto; text-align: center;
+      font-size: 0.78rem; line-height: 1.9;
+    }
+    .footer-sv-inner p { margin: 0.2rem 0; }
+    .footer-sv-inner a { color: #a5b4fc; }
+    .footer-sv-inner a:hover { color: white; }
+    .footer-sv-inner .copy { color: #6b7280; margin-top: 0.5rem; }
+
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hero-ctas, .cta-btns { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; text-align: center; }
+      .diff-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6NR8DDP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <div class="sv-bar">
+    A project by <a href="https://sharevita.org">ShareVita</a>
+    &nbsp;·&nbsp;
+    <a href="/shareskippy">← Back to ShareSkippy</a>
+  </div>
+
+  <nav>
+    <a href="/shareskippy" class="nav-logo">🐾 ShareSkippy</a>
+    <div class="nav-links">
+      <a href="/shareskippy/how-it-works">How It Works</a>
+      <a href="/shareskippy/dog-owners">For Dog Owners</a>
+      <a href="/shareskippy/borrow-a-dog">Borrow a Dog</a>
+      <a href="/shareskippy/faq">FAQ</a>
+    </div>
+    <a href="https://shareskippy.com/signup" class="btn btn-primary"
+       target="_blank" rel="noopener noreferrer" style="padding:0.45rem 1rem;font-size:0.85rem;">Join Free</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>Our Story</h1>
+      <p class="subtitle">How a simple act of kindness became a community movement.</p>
+      <div class="hero-ctas">
+        <a href="https://shareskippy.com/signup" class="btn btn-primary"
+           target="_blank" rel="noopener noreferrer">Join the Community</a>
+        <a href="/shareskippy/how-it-works" class="btn btn-outline">How It Works</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-outer">
+    <div class="story-inner">
+
+      <div class="story-section">
+        <h2>How ShareSkippy Started</h2>
+        <p>Hi, I'm Kaia, the founder of ShareSkippy — a free, community-driven way to connect dog owners with dog lovers for walks, hikes, cuddles, and adventures.</p>
+        <p>The idea came from a simple act of kindness. A close friend of mine was very sick and couldn't take her dog out for more than a few quick bathroom breaks. I posted on a local Oakland Facebook group asking if anyone could help. Within hours, over 40 people replied. Total strangers. All offering to walk a dog they'd never met.</p>
+        <p>That moment made me think: there's something profound and deeply human about this — and how dogs can bring people together faster than almost anything else.</p>
+      </div>
+
+      <div class="story-section">
+        <h2>Building a Community, Not a Service</h2>
+        <p>I didn't want to build "the next Rover" or "another app." I wanted to create a space that feels neighborly — where people help each other because they want to, not because they're being paid.</p>
+        <p>There are already plenty of platforms that make dog care transactional. ShareSkippy is about connection over commerce. It's for the busy dog owner who needs help during the day. It's for the student who misses their dog back home. It's for the retiree who just wants some furry company on walks, and everyone in between.</p>
+        <ul class="highlight-list">
+          <li>🐕 Dogs get more love and exercise.</li>
+          <li>🤝 Humans get more connection and purpose.</li>
+          <li>✨ Everyone wins.</li>
+        </ul>
+      </div>
+
+      <div class="story-section">
+        <h2>Teaching Myself to Code</h2>
+        <p>When I started, I had zero coding experience. I was coming out of a stressful job in business and operations strategy and needed to build something that felt good.</p>
+        <p>So I taught myself to code — with a lot of late nights, a lot of trial and error, and a little help from AI tools. The result is what you see here: ShareSkippy.com, built from scratch, designed to be simple, kind, and safe.</p>
+        <p>Honestly, I'm still learning and always open to feedback or guidance. Feel free to reach me at <a href="mailto:kaia@sharevita.org" style="color:var(--purple);text-decoration:underline;">kaia@sharevita.org</a>.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="diff-outer">
+    <div class="diff-inner">
+      <h2>What Makes ShareSkippy Different</h2>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-card-title">🆓 Free for everyone</div>
+          <p>There's no payment or membership required — kindness shouldn't cost money.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-title">🏘️ Neighbors helping neighbors</div>
+          <p>Every connection is community-powered, not transactional.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-title">❤️ Community care</div>
+          <p>ShareSkippy is part of ShareVita, a nonprofit — so time spent helping a neighbor with their dog is time genuinely well spent.</p>
+        </div>
+        <div class="diff-card">
+          <div class="diff-card-title">🔍 Safety through transparency</div>
+          <p>Public profiles and community reviews help everyone get to know each other before meeting in person.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="more-outer">
+    <div class="more-inner">
+
+      <div class="more-section">
+        <h2>About Me</h2>
+        <p>I was born in Norway, grew up in San Diego, studied at Cornell, and now live in Oakland, California — a city that has shaped me in every sense. I spend most of my free time walking in circles around the city, camping in the summer, and skiing in the winter.</p>
+        <p>If you'd like to follow the journey of ShareSkippy or just read honest thoughts on creating, failing, and figuring it out, feel free to reach out.</p>
+      </div>
+
+      <div class="more-section">
+        <h2>Looking Forward</h2>
+        <p>The goal is to grow. We're looking for <a href="mailto:team@sharevita.org" class="link">donations</a> (ShareVita is a 501(c)(3) nonprofit) and more volunteers and interns to help build this community.</p>
+        <p>If you'd like to get involved — as a donor, volunteer, or intern — please email us at <a href="mailto:team@sharevita.org" class="link">team@sharevita.org</a>.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Ready to Join Our Community?</h2>
+      <p>Help dogs, support neighbors, and share the joy of companionship.</p>
+      <div class="cta-btns">
+        <a href="https://shareskippy.com/signup" class="btn btn-white"
+           target="_blank" rel="noopener noreferrer">Get Started</a>
+        <a href="https://shareskippy.com" class="btn btn-outline-white"
+           target="_blank" rel="noopener noreferrer">Browse Community</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="logo">🐾 ShareSkippy</div>
+        <p>Connecting dog lovers with dog owners for free, community-based dog sharing. A project of <a href="https://sharevita.org" style="color:#a5b4fc;">ShareVita</a>.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/shareskippy">ShareSkippy Home</a></li>
+          <li><a href="/shareskippy/how-it-works">How It Works</a></li>
+          <li><a href="/shareskippy/dog-owners">For Dog Owners</a></li>
+          <li><a href="/shareskippy/borrow-a-dog">Borrow a Dog</a></li>
+          <li><a href="/shareskippy/safety">Safety</a></li>
+          <li><a href="/shareskippy/community-guidelines">Community Guidelines</a></li>
+          <li><a href="/shareskippy/our-story">Our Story</a></li>
+          <li><a href="/shareskippy/faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/terms">Terms of Service</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ShareSkippy. All rights reserved.</p>
+      <p>ShareSkippy is a free community platform. Users are responsible for their own safety and arrangements.</p>
+    </div>
+    <div class="footer-sv">
+      <div class="footer-sv-inner">
+        <p>ShareVita is a 501(c)(3) public charity (IRS Determination). EIN 39-4771264.</p>
+        <p>471 26th St Apt 304, Oakland, CA 94612 &nbsp;·&nbsp; <a href="mailto:team@sharevita.org">team@sharevita.org</a></p>
+        <p><a href="/privacy">Privacy Policy</a> &nbsp;·&nbsp; <a href="/terms">Terms of Use</a> &nbsp;·&nbsp; <a href="/contact">Contact</a></p>
+        <p class="copy">© 2025 ShareVita. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
